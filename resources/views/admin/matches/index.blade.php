@@ -62,7 +62,7 @@
                             @endcan
 
                             <td>
-                                <img src="{{ isset($match) ? "/uploads/host/$match->host_photo" : old('host_photo') }}" id="photo_preview" style="max-height: 40px;width: 40px; margin: 0px;">
+                                <img src="{{ isset($match) ? "/uploads/host/$match->host_photo" : old('host_photo') }}" id="photo_preview" class="avatar-small" style="margin: 0px">
                             </td>
 
                             <td>

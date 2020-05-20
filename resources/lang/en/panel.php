@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'site_title' => 'Football Match',
+    'site_title' => 'WORX FOOTBALL',
+    'site_title_min' => 'WORX',
 ];

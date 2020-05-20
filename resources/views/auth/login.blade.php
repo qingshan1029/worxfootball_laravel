@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1>{{ trans('panel.site_title') }}</h1>
+                <h1 style="text-align: center">{{ trans('panel.site_title') }}</h1>
 
                 <p class="text-muted">{{ trans('global.login') }}</p>
 
@@ -47,31 +47,31 @@
                         @endif
                     </div>
 
-                    <div class="input-group mb-4">
-                        <div class="form-check checkbox">
-                            <input class="form-check-input" name="remember" type="checkbox" id="remember" style="vertical-align: middle;" />
-                            <label class="form-check-label" for="remember" style="vertical-align: middle;">
-                                {{ trans('global.remember_me') }}
-                            </label>
-                        </div>
-                    </div>
+{{--                    <div class="input-group mb-4">--}}
+{{--                        <div class="form-check checkbox">--}}
+{{--                            <input class="form-check-input" name="remember" type="checkbox" id="remember" style="vertical-align: middle;" />--}}
+{{--                            <label class="form-check-label" for="remember" style="vertical-align: middle;">--}}
+{{--                                {{ trans('global.remember_me') }}--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 text-right">
                             <button type="submit" class="btn btn-primary px-4">
                                 {{ trans('global.login') }}
                             </button>
                         </div>
-                        <div class="col-6 text-right">
-                            @if(Route::has('password.request'))
-                                <a class="btn btn-link px-0" href="{{ route('password.request') }}">
-                                    {{ trans('global.forgot_password') }}
-                                </a><br>
-                            @endif
-                            <a class="btn btn-link px-0" href="{{ route('register') }}">
-                                {{ trans('global.register') }}
-                            </a>
-                        </div>
+{{--                        <div class="col-6 text-right">--}}
+{{--                            @if(Route::has('password.request'))--}}
+{{--                                <a class="btn btn-link px-0" href="{{ route('password.request') }}">--}}
+{{--                                    {{ trans('global.forgot_password') }}--}}
+{{--                                </a><br>--}}
+{{--                            @endif--}}
+{{--                            <a class="btn btn-link px-0" href="{{ route('register') }}">--}}
+{{--                                {{ trans('global.register') }}--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
                     </div>
                 </form>
             </div>

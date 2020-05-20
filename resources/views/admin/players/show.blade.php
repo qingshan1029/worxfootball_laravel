@@ -53,7 +53,7 @@
                         </th>
                         <td>
 {{--                            {{ $player->photo }}--}}
-                            <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" style="max-height: 160px;width: 160px; margin: 0px;">
+                            <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-large" style="margin: 0px">
                         </td>
                     </tr>
                     <tr>

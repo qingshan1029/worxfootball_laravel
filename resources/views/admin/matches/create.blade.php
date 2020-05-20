@@ -13,8 +13,8 @@
                 <label for="host_photo" class="form-control-label">{{trans('cruds.match.fields.host_photo')}}</label>
                 <input id="host_photo" type="file" class="form-control{{ $errors->has('host_photo') ? ' is-invalid' : '' }}" name="host_photo"
                        value="/uploads/host/host_photo_empty.png" accept="image/*">
-                <img src="/uploads/host/host_photo_empty.png" id="host_photo_preview" style="max-height: 80px; width: 80px; margin-top: 10px;">
-                @if ($errors->has('host_photo'))
+                <img src="/uploads/host/host_photo_empty.png" id="host_photo_preview" class="avatar-medium" style="margin-top: 10px;">
+                @if($errors->has('host_photo'))
                     <div class="invalid-feedback">
                         <strong>{{ $errors->first('host_photo') }}</strong>
                     </div>

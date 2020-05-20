@@ -65,7 +65,7 @@
                 <label for="photo" class="form-control-label">{{trans('cruds.player.fields.photo')}}</label>
                 <input id="photo" type="file" class="form-control{{ $errors->has('photo') ? ' is-invalid' : '' }}" name="photo"
                        value="/uploads/photo/photo_empty.png" accept="image/*">
-                <img src="/uploads/photo/photo_empty.png" id="photo_preview" style="max-height: 80px; width: 80px; margin-top: 10px;">
+                <img src="/uploads/photo/photo_empty.png" id="photo_preview" alt="Avatar" class="avatar-medium" style="margin-top: 10px">
                 @if ($errors->has('photo'))
                     <div class="invalid-feedback">
                         <strong>{{ $errors->first('photo') }}</strong>

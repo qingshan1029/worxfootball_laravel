@@ -2,6 +2,16 @@
     <nav class="sidebar-nav">
 
         <ul class="nav">
+            <li class="nav-item">
+                <a href="{{ route("admin.home") }}" class="nav-link {{ request()->is('admin.home') || request()->is('admin/home/*') ? 'active' : '' }}">
+                    <i class="fa-fw fas fa-tags nav-icon">
+
+                    </i>
+{{--                    {{ trans('cruds.match.title') }}--}}
+                    Dashboard
+                </a>
+            </li>
+
             @can('match_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.matches.index") }}" class="nav-link {{ request()->is('admin/matches') || request()->is('admin/matches/*') ? 'active' : '' }}">

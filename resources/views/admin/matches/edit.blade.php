@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label class="required control-label" for="host_photo">{{ trans('cruds.match.fields.host_photo') }}</label>
                 <input class="form-control file {{ $errors->has('host_photo') ? 'is-invalid' : '' }}" type="file" name="host_photo" id="host_photo" value="{{ old('host_photo', $match->host_photo) }}">
-                <img src="{{ isset($match->host_photo) ? "/uploads/host/$match->host_photo" : "/uploads/host/host_photo_empty.png" }}" id="host_photo_preview" style="max-height: 80px;width: 80px; margin-top: 10px;">
+                <img src="{{ isset($match->host_photo) ? "/uploads/host/$match->host_photo" : "/uploads/host/host_photo_empty.png" }}" id="host_photo_preview" class="avatar-medium" style="margin-top: 10px">
                 <p class="help-block"></p>
                 @if($errors->has('host_photo'))
                     <div class="invalid-feedback">

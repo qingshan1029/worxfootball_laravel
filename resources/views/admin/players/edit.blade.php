@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label class="required control-label" for="photo">{{ trans('cruds.player.fields.photo') }}</label>
                 <input class="form-control file {{ $errors->has('photo') ? 'is-invalid' : '' }}" type="file" name="photo" id="photo" value="{{ old('photo', $player->photo) }}">
-                <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" style="max-height: 80px;width: 80px; margin-top: 10px">
+                <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-medium" style="margin-top: 10px">
                 <p class="help-block"></p>
                 @if($errors->has('photo'))
                     <div class="invalid-feedback">
@@ -89,8 +89,6 @@
                 </button>
             </div>
         </form>
-
-
     </div>
 </div>
 @endsection

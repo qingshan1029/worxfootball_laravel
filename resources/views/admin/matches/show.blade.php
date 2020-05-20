@@ -21,7 +21,7 @@
                         </th>
                         <td>
 {{--                            {{ $match->host_photo }}--}}
-                            <img src="{{ isset($match) ? "/uploads/host/$match->host_photo" : old('host_photo') }}" id="host_photo_preview" style="max-height: 160px;width: 160px; margin: 0px;">
+                            <img src="{{ isset($match) ? "/uploads/host/$match->host_photo" : old('host_photo') }}" id="host_photo_preview" class="avatar-large" style="margin: 0px;">
                         </td>
                     </tr>
                     <tr>
