@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1 style="text-align: center">{{ trans('panel.site_title') }}</h1>
+                <h1 style="text-align: center; color: rgba(0,0,0,0.5)">{{ trans('panel.site_title') }}</h1>
 
                 <p class="text-muted">{{ trans('global.login') }}</p>
 

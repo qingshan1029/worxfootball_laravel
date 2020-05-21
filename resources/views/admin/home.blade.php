@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset("assets/stylesheets/mycss.css") }}" />
 {{--    <link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}" />--}}
-    <h1 style="text-align: center; margin-top: 10px; padding-bottom: 20px; color: #00adff">WORX FOOTBALL DASHBOARD</h1>
+    <h1 style="text-align: center; margin-top: 0px; padding-bottom: 20px; color: #00adff">WORX FOOTBALL DASHBOARD</h1>
     <div class="row container-fluid">
         <div class="col-lg-4 col-md-6">
             <div class="panel panel-primary">

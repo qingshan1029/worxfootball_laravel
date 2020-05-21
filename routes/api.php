@@ -1,19 +1,33 @@
 <?php
 
-Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:api']], function () {
-    // Permissions
-    Route::apiResource('permissions', 'PermissionsApiController');
+//Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:api']], function () {
+//    // Permissions
+//    Route::apiResource('permissions', 'PermissionsApiController');
+//
+//    // Roles
+//    Route::apiResource('roles', 'RolesApiController');
+//
+//    // Users
+//    Route::apiResource('users', 'UsersApiController');
+//
+//    // Categories
+//    Route::apiResource('categories', 'CategoriesApiController');
+//
+//    // Shops
+//    Route::post('shops/media', 'ShopsApiController@storeMedia')->name('shops.storeMedia');
+//    Route::apiResource('shops', 'ShopsApiController');
+//});
 
-    // Roles
-    Route::apiResource('roles', 'RolesApiController');
+Route::post('login', 'Api\UserAPIController@login');
+Route::post('register', 'Api\UserAPIController@register');
+Route::post('users', 'Api\UserAPIController@users');
 
-    // Users
-    Route::apiResource('users', 'UsersApiController');
+Route::post('player/login', 'Api\PlayerAPIController@login');
+Route::post('player/register', 'Api\PlayerAPIController@register');
+Route::post('player/players', 'Api\PlayerAPIController@players');
 
-    // Categories
-    Route::apiResource('categories', 'CategoriesApiController');
 
-    // Shops
-    Route::post('shops/media', 'ShopsApiController@storeMedia')->name('shops.storeMedia');
-    Route::apiResource('shops', 'ShopsApiController');
-});
+
+//Route::group(['middleware' => 'auth:api'], function() {
+//    Route::post('users', 'Api\UserAPIController@users');
+//});

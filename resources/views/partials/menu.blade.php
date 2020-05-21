@@ -1,10 +1,13 @@
 <div class="sidebar">
+    <p>
+        <img src={{ asset("assets/images/humanpictos.svg")}} class="icon-logo">
+    </p>
     <nav class="sidebar-nav">
-
         <ul class="nav">
-            <li class="nav-item">
+            <li class="nav-item" style="margin-top: 0px !important;">
+
                 <a href="{{ route("admin.home") }}" class="nav-link {{ request()->is('admin.home') || request()->is('admin/home/*') ? 'active' : '' }}">
-                    <i class="fa-fw fas fa-tags nav-icon">
+                    <i class="fa-fw fas fa-tachometer-alt nav-icon">
 
                     </i>
 {{--                    {{ trans('cruds.match.title') }}--}}
@@ -15,7 +18,7 @@
             @can('match_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.matches.index") }}" class="nav-link {{ request()->is('admin/matches') || request()->is('admin/matches/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-tags nav-icon">
+                        <i class="fa-fw nav-icon fa fa-futbol-o">
 
                         </i>
                         {{ trans('cruds.match.title') }}
@@ -26,7 +29,7 @@
             @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.players.index") }}" class="nav-link {{ request()->is('admin/players') || request()->is('admin/players/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-user nav-icon">
+                        <i class="fa-fw fas fa-user-friends nav-icon">
 
                         </i>
                         {{ trans('cruds.player.title') }}
@@ -38,7 +41,7 @@
             @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-user nav-icon">
+                        <i class="fa-fw fas fa-user-shield nav-icon">
 
                         </i>
                         {{ trans('cruds.user.title') }}

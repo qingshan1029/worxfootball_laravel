@@ -1,3 +1,14 @@
+/*@media screen and (max-width: 992px){*/
+/*    .app-header {*/
+/*        top: 0 !important;*/
+/*        !*position: relative !important;*!*/
+/*    }*/
+/*}*/
+
+.app-body {
+    margin-top: 0 !important;
+}
+
 .ck-editor__editable,
 textarea {
     min-height: 150px;
@@ -116,24 +127,24 @@ table.dataTable thead .sorting_desc {
     display: block;
 }
 
-.sidebar-toggler:hover {
-    mix-blend-mode: exclusion;
-}
+/*.sidebar-toggler:hover {*/
+/*    mix-blend-mode: exclusion;*/
+/*}*/
 
 .navbar-brand-full {
-    color: rgba(255,255,255,0.8) !important;
+    color: rgba(0,0,0,0.6) !important;
     font-family: Arial Black;
 }
 
 .navbar-brand-full:hover {
-    color: rgba(255,255,255,0.6) !important;
+    color: rgba(0,0,0,0.8) !important;
     font-family: Arial Black;
 }
 .navbar-brand-minimized {
-    color: rgba(255,255,255,0.8) !important;
+    color: rgba(0,0,0,0.6) !important;
 }
 .navbar-brand-minimized:hover {
-    color: rgba(255,255,255,0.6) !important;
+    color: rgba(0,0,0,0.8) !important;
 }
 .avatar-small {
     vertical-align: middle;
@@ -152,4 +163,20 @@ table.dataTable thead .sorting_desc {
     width: 160px;
     height: 160px;
     border-radius: 50%;
+}
+.nav-item {
+    margin-top: 10px !important;
+}
+.icon-logo{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar {
+    box-shadow:
+        inset 0 -3em 3em rgba(0,0,0,0.1),
+        0 0  0 2px rgb(255,255,255),
+        0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
