@@ -26,7 +26,7 @@ class PlayerAPIController extends Controller
 
         if( $player != null ) {    // email successful
             if (Hash::check($request['password'], $player['password'])) {   // password successful
-                return response()->json(['success' => $player], $this-> successStatus);
+                return response()->json(['user' => $player], $this-> successStatus);
             }
         }
 
@@ -75,12 +75,12 @@ class PlayerAPIController extends Controller
 
         $player = Player::create($request->all());
         $success['email'] =  $player->email;
-        return response()->json(['success'=>$player], $this-> successStatus);
+        return response()->json(['user'=>$player], $this-> successStatus);
     }
 
     public function players()
     {
         $players = Player::all();
-        return response()->json(['success' => $players], $this-> successStatus);
+        return response()->json(['user' => $players], $this-> successStatus);
     }
 }

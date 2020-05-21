@@ -36,7 +36,7 @@ class UserAPIController extends Controller
             $user->remember_token = $user->createToken('MyApp')-> accessToken;
             $success['remember_token'] = $user->remember_token;
 //            $user->save();
-            return response()->json(['success' => $user], $this-> successStatus);
+            return response()->json(['user' => $user], $this-> successStatus);
         }
         else {
             return response()->json(['error'=>'Unauthenticated user'], 401);
@@ -73,7 +73,7 @@ class UserAPIController extends Controller
 
         $user = User::create($request->all());
         $success['email'] =  $user->email;
-        return response()->json(['success'=>$user], $this-> successStatus);
+        return response()->json(['user'=>$user], $this-> successStatus);
     }
     /**
      * details api
@@ -83,6 +83,6 @@ class UserAPIController extends Controller
     public function users()
     {
         $users = User::all();
-        return response()->json(['success' => $users], $this-> successStatus);
+        return response()->json(['user' => $users], $this-> successStatus);
     }
 }

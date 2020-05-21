@@ -12,7 +12,7 @@
                             <i class="fas fa-futbol fa-5x"></i>
                         </div>
                         <div class="col-9 text-right">
-                            <div class="huge">{{$player_count}}</div>
+                            <div class="huge">{{$info['player_count']}}</div>
                             <div>Players</div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                             <i class="fa fa-support fa-5x"></i>
                         </div>
                         <div class="col-9 text-right">
-                            <div class="huge">{{$match_count}}</div>
+                            <div class="huge">{{$info['match_count']}}</div>
                             <div>Matches</div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <i class="fas fa-user-shield fa-5x"></i>
                         </div>
                         <div class="col-9 text-right">
-                            <div class="huge">{{$user_count}}</div>
+                            <div class="huge">{{$info['user_count']}}</div>
                             <div>Users</div>
                         </div>
                     </div>

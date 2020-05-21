@@ -22,6 +22,10 @@ class HomeController
         $player_count = count($players);
         $match_count = count($matches);
         $user_count = count($users);
-        return view('admin.home',  compact('player_count', 'match_count', 'user_count'));
+        $info['player_count'] = $player_count;
+        $info['match_count'] = $match_count;
+        $info['user_count'] = $user_count;
+
+        return view('admin.home',  compact('info'));
     }
 }
