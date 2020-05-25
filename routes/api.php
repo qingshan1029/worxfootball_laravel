@@ -26,6 +26,7 @@ Route::post('player/login', 'Api\PlayerAPIController@login');
 Route::post('player/register', 'Api\PlayerAPIController@register');
 Route::post('player/players', 'Api\PlayerAPIController@players');
 
+Route::post('matches', 'Api\MatchAPIController@getMatches');
 
 
 //Route::group(['middleware' => 'auth:api'], function() {

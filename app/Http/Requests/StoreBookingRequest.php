@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Match;
+use App\Booking;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class StoreMatchRequest extends FormRequest
+class StoreBookingRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('match_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -19,25 +19,10 @@ class StoreMatchRequest extends FormRequest
     public function rules()
     {
         return [
-//            'host_photo'    => [
-//                'required',
-//            ],
-            'host_name' => [
+            'match_id' => [
                 'required',
             ],
-            'title' => [
-                'required',
-            ],
-            'start_time' => [
-                'required',
-            ],
-            'address' => [
-                'required',
-            ],
-            'players' => [
-                'required',
-            ],
-            'rules' => [
+            'user_id' => [
                 'required',
             ],
         ];

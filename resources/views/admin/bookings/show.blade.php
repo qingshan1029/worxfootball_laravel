@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.player.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.booking.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.players.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.bookings.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,57 +17,32 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.player.fields.email') }}
+                            {{ trans('cruds.booking.fields.id') }}
                         </th>
                         <td>
-                            {{ $player->email }}
+{{--                            {{ $booking->id }}--}}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.player.fields.first_name') }}
+                            {{ trans('cruds.booking.fields.match_id') }}
                         </th>
                         <td>
-                            {{ $player->first_name }}
+                            {{ $booking->match_id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.player.fields.last_name') }}
+                            {{ trans('cruds.booking.fields.player_id') }}
                         </th>
                         <td>
-                            {{ $player->last_name }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.player.fields.birthday') }}
-                        </th>
-                        <td>
-                            {{ date('Y-m-d', strtotime($player->birthday)) }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.player.fields.photo') }}
-                        </th>
-                        <td>
-{{--                            {{ $player->photo }}--}}
-                            <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-large" style="margin: 0px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.player.fields.credits') }}
-                        </th>
-                        <td>
-                            {{ $player->credits }}
+                            {{ $booking->match_id}}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.players.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.bookings.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

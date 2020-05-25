@@ -43,4 +43,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Matches
     Route::delete('matches/destroy', 'MatchesController@massDestroy')->name('matches.massDestroy');
     Route::resource('matches', 'MatchesController');
+
+    // Bookings
+    Route::delete('bookings/destroy', 'BookingsController@massDestroy')->name('bookings.massDestroy');
+    Route::resource('bookings', 'BookingsController');
 });
+
+
+

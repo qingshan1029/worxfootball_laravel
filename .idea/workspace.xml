@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d506534-fef1-4d5e-89e1-14e26b2badf8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/MatchAPIController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyBookingRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreBookingRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateBookingRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bookings/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bookings/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bookings/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bookings/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MatchesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MatchesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,20 +182,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/bookings" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\FootballMatch\app\Http\Controllers\Admin" />
-      <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\Laravel-Shops-Map-QuickAdminPanel-master\app\Http\Controllers\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\resources\views\admin\bookings" />
+      <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Requests" />
       <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\resources\views" />
       <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\FootballMatch\database\seeds" />
       <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\FootballMatch\app\Http\Requests" />
-      <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\FootballMatch\resources\views\admin\players" />
-      <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\Laravel-Shops-Map-QuickAdminPanel-master\app\Http\Requests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Controllers\Admin" />
+      <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\FootballMatch\app\Http\Controllers\Admin" />
+      <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\Laravel-Shops-Map-QuickAdminPanel-master\app\Http\Controllers\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -238,6 +250,7 @@
       <workItem from="1590007355486" duration="8053000" />
       <workItem from="1590020842042" duration="7966000" />
       <workItem from="1590045837528" duration="906000" />
+      <workItem from="1590108092415" duration="22850000" />
     </task>
     <servers />
   </component>
@@ -245,31 +258,31 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590008116702">
+    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590115703647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590008116702" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590023002965">
+    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590115703647" />
+    <state x="1049" y="247" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590133034934">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590023002965" />
+    <state x="1049" y="247" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590133034934" />
     <state x="2610" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590007486232" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1590007267808">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1590110484328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590007267808" />
-    <state x="795" y="438" key="NewPhpFileDialog" timestamp="1590010939084">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590110484328" />
+    <state x="795" y="438" key="NewPhpFileDialog" timestamp="1590132995652">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="438" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590010939084" />
+    <state x="795" y="438" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590132995652" />
     <state x="2061" y="226" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589642841131">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2061" y="226" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589642841131" />
-    <state x="774" y="177" width="1146" height="863" key="find.popup" timestamp="1590027880752">
+    <state x="484" y="177" width="1146" height="863" key="find.popup" timestamp="1590133753701">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="774" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590027880752" />
+    <state x="484" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590133753701" />
     <state x="411" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1589700455439" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1590022488229">
       <screen x="0" y="0" width="1920" height="1040" />

@@ -7,7 +7,7 @@ use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyPlayerRequest extends FormRequest
+class MassDestroyBookingRequest extends FormRequest
 {
     public function authorize()
     {
@@ -20,7 +20,7 @@ class MassDestroyPlayerRequest extends FormRequest
     {
         return [
             'ids'   => 'required|array',
-            'ids.*' => 'exists:players,id',
+            'ids.*' => 'exists:bookings,id',
         ];
     }
 }

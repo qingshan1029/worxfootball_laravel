@@ -49,6 +49,17 @@
                 </li>
             @endcan
 
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.bookings.index") }}" class="nav-link {{ request()->is('admin/bookings') || request()->is('admin/bookings/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-user-shield nav-icon">
+
+                        </i>
+                        {{ trans('cruds.booking.title') }}
+                    </a>
+                </li>
+            @endcan
+
 {{--            @can('user_management_access')--}}
 {{--                <li class="nav-item nav-dropdown">--}}
 {{--                    <a class="nav-link  nav-dropdown-toggle" href="#">--}}
