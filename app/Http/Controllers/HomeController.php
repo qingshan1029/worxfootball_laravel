@@ -19,7 +19,7 @@ class HomeController extends Controller
         return view('home', compact('mapMatches', 'latitude', 'longitude'));
     }
 
-//    public function show(Shop $shop)
+//    public function show(Shop $shop)e
 //    {
 //        $shop->load(['categories', 'days']);
 //

@@ -16,13 +16,11 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('match_id');
+            $table->bigInteger('match_id');
 
-            $table->integer('player_id');
+            $table->bigInteger('player_id');
 
             $table->timestamps();
-
-            $table->softDeletes();
         });
     }
 

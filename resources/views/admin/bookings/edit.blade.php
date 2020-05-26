@@ -7,12 +7,12 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.bookings.update", [$booking->id]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.bookings.update", $booking['id']) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">
                 <label class="required" for="id">{{ trans('cruds.booking.fields.id') }}</label>
-                <input class="form-control {{ $errors->has('id') ? 'is-invalid' : '' }}" type="text" name="id" id="id" value="{{ old('id', $booking->id) }}" required>
+                <input class="form-control {{ $errors->has('id') ? 'is-invalid' : '' }}" type="text" name="id" id="id" value="{{ old('id', $booking['id']) }}" readonly required>
                 @if($errors->has('id'))
                     <div class="invalid-feedback">
                         {{ $errors->first('id') }}
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="match_id">{{ trans('cruds.booking.fields.match_id') }}</label>
-                <input class="form-control {{ $errors->has('match_id') ? 'is-invalid' : '' }}" type="text" name="match_id" id="match_id" value="{{ old('match_id', $booking->match_id) }}" required>
+                <input class="form-control {{ $errors->has('match_id') ? 'is-invalid' : '' }}" type="number" name="match_id" id="match_id" value="{{ old('match_id', $booking['match']['id']) }}" required>
                 @if($errors->has('match_id'))
                     <div class="invalid-feedback">
                         {{ $errors->first('match_id') }}
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="player_id">{{ trans('cruds.booking.fields.player_id') }}</label>
-                <input class="form-control {{ $errors->has('player_id') ? 'is-invalid' : '' }}" type="text" name="player_id" id="player_id" value="{{ old('player_id', $booking->player_id) }}" required>
+                <input class="form-control {{ $errors->has('player_id') ? 'is-invalid' : '' }}" type="number" name="player_id" id="player_id" value="{{ old('player_id', $booking['player']['id']) }}" required>
                 @if($errors->has('player_id'))
                     <div class="invalid-feedback">
                         {{ $errors->first('player_id') }}

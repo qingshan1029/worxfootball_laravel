@@ -37,35 +37,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($item['players'] as $key => $player)
-                        <tr data-entry-id="{{ $item['booking_id'] }}">
+                    @foreach($response as $key => $bookings)
+                        <tr data-entry-id="{{ $bookings['id'] }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $item['start_time'] ?? '' }}
+                                {{ $bookings['id'] ?? '' }}
                             </td>
                             <td>
-                                {{ $player->email ?? '' }}
+                                {{ $bookings['matches']['address'] ?? '' }}
                             </td>
                             <td>
-                                {{ $player->first_name ?? '' }}
+                                {{ $bookings['players']['first_name'] ?? '' }}  {{ $bookings['players']['last_name'] ?? ''}}
+
                             </td>
                             <td>
                                 @can('user_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.bookings.show', $item['booking_id']) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.bookings.show', $bookings['id']) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
                                 @can('user_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.bookings.edit', $item['booking_id']) }}">
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.bookings.edit', $bookings['id']) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
                                 @can('user_delete')
-                                    <form action="{{ route('admin.bookings.destroy', $item['booking_id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <form action="{{ route('admin.bookings.destroy', $bookings['id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">

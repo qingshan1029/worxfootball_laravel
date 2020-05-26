@@ -21,6 +21,8 @@ class MatchesController extends Controller
 
         $matches = Match::all();
 
+        $matches = Match::orderBy('start_time', 'desc')->get();
+
         return view('admin.matches.index', compact('matches'));
     }
 
@@ -34,6 +36,9 @@ class MatchesController extends Controller
     public function store(StoreMatchRequest $request)
     {
         abort_if(Gate::denies('match_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        if( $request['rules'] < $request['reservations'] )
+            abort_if(true, Response::HTTP_FORBIDDEN, 'reservations must less than rules');
 
         if( $request->hasFile('host_photo') ) {
             $file = $request->file('host_photo');
@@ -60,6 +65,9 @@ class MatchesController extends Controller
 
     public function update(UpdateMatchRequest $request, Match $match)
     {
+        if( $request['rules'] < $request['reservations'] )
+            abort_if(true, Response::HTTP_FORBIDDEN, 'reservations must less than rules');
+
         if( $request->hasFile('host_photo') ) {
             $path = 'uploads/host/' . $match->getAttribute('host_photo');
 //            if (Storage::exists($path)) {
@@ -79,7 +87,10 @@ class MatchesController extends Controller
 
         }
 
+        //$this->getMatches($request);
+
         $match->update($request->input());
+
         return redirect()->route('admin.matches.index');
     }
 
@@ -118,52 +129,48 @@ class MatchesController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-    public function getMatches(Request $request)
+    public function getMatches($request)
     {
         abort_if(Gate::denies('match_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $validator = Validator::make($request->all(), [
-//            'token' => [
+//        $validator = Validator::make($request->all(), [
+//                'start_time' => [
 //                'required',
 //            ],
-//            'email' => [
+//                    'latitude' => [
 //                'required',
 //            ],
-//            'host_name'    => [
+//                    'longitude' => [
 //                'required',
 //            ],
-            'start_time' => [
-                'required',
-            ],
-            'latitude' => [
-                'required',
-            ],
-            'longitude' => [
-                'required',
-            ],
-        ]);
+//                    'radius' => [
+//                'required',
+//            ],
+//        ]);
+//
+//        if ($validator->fails()) {
+//            //return response()->json(['error'=>$validator->errors()], 401);
+//            return response(null, Response::HTTP_NO_CONTENT);
+//        }
 
-        if ($validator->fails()) {
-            //return response()->json(['error'=>$validator->errors()], 401);
-            return response(null, Response::HTTP_NO_CONTENT);
-        }
+        $request = ["start_time"=>"2020-05-20 10:00:00", "latitude" => '53.2535714', "longitude" => '-1.4257437',
+        "radius" => "1500"];
+        $today = date("Y-m-d", strtotime($request['start_time']));
+        $matches = $this->findNearestMatches($today, $request['latitude'], $request['longitude'], $request['radius']);
 
-//        $request = ['start_time'=>'2020-05-20 10:00:00', "latitude" => '53.2535714', "longitude" => '-1.4257437'];
-        $today = date( "Y-m-d", strtotime( $request['start_time']));
-//        $this->findNearestRestaurants($today, $request['latitude'],$request['longitude'], 1500);
+        dd($matches);
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
-//    private function findNearestRestaurants($today, $latitude, $longitude, $radius = 1500)
+//    private function findNearestMatches($today, $latitude, $longitude, $radius = 1500)
 //    {
 //        /*
 //         * using eloquent approach, make sure to replace the "Restaurant" with your actual model name
 //         * replace 6371000 with 6371 for kilometer and 3956 for miles
 //         */
 //        $tomorrow = date('Y-m-d',strtotime($today . "+1 days"));
-//        $restaurants = Match::selectRaw("host_photo, host_name, title, start_time, address,
-//                        latitude, longitude, rules, players,
+//        $matches = Match::selectRaw("matches.id as match_id, bookings.player_id as player_id, players.*, matches.*,
 //                         ( 6371000 * acos( cos( radians(?) ) *
 //                           cos( radians( latitude ) )
 //                           * cos( radians( longitude ) - radians(?)
@@ -175,10 +182,42 @@ class MatchesController extends Controller
 //                ['start_time', '<', $tomorrow],
 //            ])
 //            ->having("distance", "<", $radius)
-//            ->orderBy("distance",'asc')
+//            ->orderBy("distance",'asc') // oder by nearest neighbour
 //            ->offset(0)
 //            ->limit(20)
+//            ->leftJoin('bookings', 'matches.id', '=', 'bookings.match_id')
+//            ->leftJoin('players', 'players.id', '=', 'bookings.player_id')
 //            ->get();
-//        return $restaurants;
+//
+//        return $matches;
 //    }
+
+    private function findNearestMatches($today, $latitude, $longitude, $radius = 1500)
+    {
+        /*
+         * using eloquent approach, make sure to replace the "Restaurant" with your actual model name
+         * replace 6371000 with 6371 for kilometer and 3956 for miles
+         */
+        $tomorrow = date('Y-m-d',strtotime($today . "+1 days"));
+        $matches = Match::selectRaw("matches.id as match_id, bookings.player_id as player_id, players.*, matches.*,
+                         ( 6371000 * acos( cos( radians(?) ) *
+                           cos( radians( latitude ) )
+                           * cos( radians( longitude ) - radians(?)
+                           ) + sin( radians(?) ) *
+                           sin( radians( latitude ) ) )
+                         ) AS distance", [$latitude, $longitude, $latitude])
+            ->where([['active', '=', 1],
+                ['start_time', '>=', $today],
+                ['start_time', '<', $tomorrow],
+            ])
+            ->having("distance", "<", $radius)
+            ->orderBy("distance",'asc') // oder by nearest neighbour
+            ->offset(0)
+            ->limit(20)
+            ->leftJoin('bookings', 'matches.id', '=', 'bookings.match_id')
+            ->leftJoin('players', 'players.id', '=', 'bookings.player_id')
+            ->get();
+
+        return $matches;
+    }
 }

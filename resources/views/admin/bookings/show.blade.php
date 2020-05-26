@@ -28,7 +28,7 @@
                             {{ trans('cruds.booking.fields.match_id') }}
                         </th>
                         <td>
-                            {{ $booking->match_id }}
+                            {{ $booking['match']['address'] ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                             {{ trans('cruds.booking.fields.player_id') }}
                         </th>
                         <td>
-                            {{ $booking->match_id}}
+                            {{ $booking['player']['first_name'] ?? '' }}
                         </td>
                     </tr>
                 </tbody>

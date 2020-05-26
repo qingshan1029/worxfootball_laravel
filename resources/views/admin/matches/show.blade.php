@@ -69,10 +69,19 @@
 
                     <tr>
                         <th>
-                            {{ trans('cruds.match.fields.players') }}
+                            {{ trans('cruds.match.fields.reservations') }}
                         </th>
                         <td>
-                            {{ $match->players }}
+                            {{ $match->reservations }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            {{ trans('cruds.match.fields.credits') }}
+                        </th>
+                        <td>
+                            {{ $match->credits }}
                         </td>
                     </tr>
 

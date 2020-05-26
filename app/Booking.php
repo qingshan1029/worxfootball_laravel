@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
 class Booking extends Model
 {
-    use SoftDeletes, Notifiable;
+    use Notifiable;
 
     public $table = 'bookings';
 
@@ -19,7 +18,6 @@ class Booking extends Model
     protected $dates = [
         'updated_at',
         'created_at',
-        'deleted_at',
     ];
 
     protected $fillable = [
@@ -27,6 +25,5 @@ class Booking extends Model
         'player_id',
         'created_at',
         'updated_at',
-        'deleted_at',
     ];
 }

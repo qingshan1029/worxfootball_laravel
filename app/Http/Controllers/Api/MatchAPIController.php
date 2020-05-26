@@ -1,9 +1,12 @@
 <?php
 namespace App\Http\Controllers\Api;
+use App\Booking;
 use App\Http\Controllers\Controller;
 use App\Match;
+use App\Player;
 use Validator;
 use Illuminate\Http\Request;
+
 
 class MatchAPIController extends Controller
 {
@@ -12,15 +15,6 @@ class MatchAPIController extends Controller
     public function getMatches(Request $request)
     {
         $validator = Validator::make($request->all(), [
-//            'token' => [
-//                'required',
-//            ],
-//            'email' => [
-//                'required',
-//            ],
-//            'host_name'    => [
-//                'required',
-//            ],
             'start_time' => [
                 'required',
             ],
@@ -28,6 +22,9 @@ class MatchAPIController extends Controller
                 'required',
             ],
             'longitude' => [
+                'required',
+            ],
+            'radius' => [
                 'required',
             ],
         ]);
@@ -38,24 +35,23 @@ class MatchAPIController extends Controller
 
 //      $request = ['start_time'=>'2020-05-20 10:00:00', "latitude" => '53.2535714', "longitude" => '-1.4257437'];
         $today = date("Y-m-d", strtotime($request['start_time']));
-        $matches = $this->findNearestRestaurants($today, $request['latitude'], $request['longitude'], 1500);
+        $matches = $this->findNearestMatches($today, $request['latitude'], $request['longitude'], $request['radius']);
+
+
 
         return response()->json(['data' => $matches], $this-> successStatus);
     }
 
-    private function findNearestRestaurants($today, $latitude, $longitude, $radius = 1500)
+
+
+    private function findNearestMatches($today, $latitude, $longitude, $radius = 1500)
     {
         /*
          * using eloquent approach, make sure to replace the "Restaurant" with your actual model name
          * replace 6371000 with 6371 for kilometer and 3956 for miles
          */
-
-        /**
-         * retrieve only matches today
-         */
-        $tomorrow = date('Y-m-d', strtotime($today . "+1 days"));
-        $matches = Match::selectRaw("host_photo, host_name, title, start_time, address,
-                        latitude, longitude, rules, players,
+        $tomorrow = date('Y-m-d',strtotime($today . "+1 days"));
+        $matches = Match::selectRaw("matches.id as match_id, matches.*,
                          ( 6371000 * acos( cos( radians(?) ) *
                            cos( radians( latitude ) )
                            * cos( radians( longitude ) - radians(?)
@@ -67,10 +63,38 @@ class MatchAPIController extends Controller
                 ['start_time', '<', $tomorrow],
             ])
             ->having("distance", "<", $radius)
-            ->orderBy("distance", 'asc')
+            ->orderBy("distance",'asc') // oder by nearest neighbour
             ->offset(0)
             ->limit(20)
             ->get();
-        return $matches;
+
+        $data = [];
+        foreach($matches as $match) {
+            $players = Booking::selectRaw("*")
+                        ->leftJoin('players', 'bookings.player_id', '=', 'players.id')
+                        ->where('match_id', '=', $match['id'])->get();
+
+            $data[] = $this->makeMainMatch($match, $players);
+        }
+
+        return $data;
+    }
+
+    public function makeMainMatch($match, $players) {
+
+        return [
+            'id' => $match->id,
+            'host_photo' => $match->host_photo,
+            'host_name' => $match->host_name,
+            'title' => $match->title,
+            'start_time' => $match->start_time,
+            'address' => $match->address,
+            'latitude' => $match->latitude,
+            'longitude' => $match->longitude,
+            'rules' => $match->rules,
+            'reservations' => $match->reservations,
+            'credits' => $match->credits,
+            'players' => $players,
+        ];
     }
 }

@@ -14,7 +14,7 @@ class CreateMatchesTable extends Migration
     public function up()
     {
         Schema::create('matches', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unique();
 
             $table->string('host_photo');
 
@@ -26,15 +26,19 @@ class CreateMatchesTable extends Migration
 
             $table->string('address')->nullable();
 
-            $table->string('latitude')->nullable();
+            $table->double('latitude');
 
-            $table->string('longitude')->nullable();
+            $table->double('longitude');
 
-            $table->longText('rules')->nullable();
+            $table->integer('rules');
 
-            $table->integer('players')->nullable();
+            $table->integer('reservations');
 
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->default(true);
+
+            $table->double('radius');
+
+            $table->integer('credits');
 
             $table->timestamps();
 

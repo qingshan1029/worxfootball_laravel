@@ -22,7 +22,7 @@ class StoreBookingRequest extends FormRequest
             'match_id' => [
                 'required',
             ],
-            'user_id' => [
+            'player_id' => [
                 'required',
             ],
         ];

@@ -54,14 +54,26 @@
             </div>
             <div class="form-group">
                 <label for="rules">{{ trans('cruds.match.fields.rules') }}</label>
-                <textarea class="form-control {{ $errors->has('rules') ? 'is-invalid' : '' }}" name="rules" id="rules" required>{{ old('description') }}</textarea>
-                @if($errors->has('rules'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('rules') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.match.fields.rules_helper') }}</span>
+{{--                <textarea class="form-control {{ $errors->has('rules') ? 'is-invalid' : '' }}" name="rules" id="rules" required>{{ old('description') }}</textarea>--}}
+{{--                @if($errors->has('rules'))--}}
+{{--                    <div class="invalid-feedback">--}}
+{{--                        {{ $errors->first('rules') }}--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--                <span class="help-block">{{ trans('cruds.match.fields.rules_helper') }}</span>--}}
+
+
+                <div class="form-inline">
+                    <select class="custom-select my-0 mr-sm-2" name="rules">
+                        @foreach(range(6, 22, 2) as $rules)
+                            <option
+                                value="{{$rules}}">{{$rules}}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
+
 
             <div class="form-group">
                 <label for="address">{{ trans('cruds.match.fields.address') }}</label>
@@ -80,6 +92,29 @@
                 <div style="width: 100%; height: 100%" id="address-map"></div>
             </div>
 
+            <label>{{ trans('cruds.match.fields.reservations') }}</label>
+            <div class="form-inline">
+                <select class="custom-select my-0 mr-sm-2" name="reservations">
+                    @foreach(range(0, 22) as $reservations)
+                        <option
+                            value="{{$reservations}}">{{$reservations}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="required control-label" for="credits">{{ trans('cruds.match.fields.credits') }}</label>
+                <input class="form-control" type="number" name="credits" id="credits " required>
+                <p class="help-block"></p>
+                @if($errors->has('credits'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('credits') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.match.fields.credits_helper') }}</span>
+            </div>
+
             <div class="form-group">
                 <div class="form-check {{ $errors->has('active') ? 'is-invalid' : '' }}">
                     <input class="form-check-input" type="checkbox" name="active" id="active" value="1" {{ old('active', 0) == 1 ? 'checked' : '' }}>
@@ -91,17 +126,6 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.match.fields.active_helper') }}</span>
-            </div>
-
-            <label>{{ trans('cruds.match.fields.players') }}</label>
-            <div class="form-inline">
-                <select class="custom-select my-0 mr-sm-2" name="players">
-                    @foreach(range(2,22) as $players)
-                        <option
-                            value="{{$players}}">{{$players}}
-                        </option>
-                    @endforeach
-                </select>
             </div>
             <div class="form-group my-4">
                 <button class="btn btn-danger" type="submit">

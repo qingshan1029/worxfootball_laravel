@@ -33,15 +33,17 @@ class Match extends Model implements HasMedia
         'title',
         'start_time',
         'address',
-        'players',
+        'reservations',
         'active',
         'rules',
         'latitude',
         'longitude',
+        'credits',
         'created_at',
         'updated_at',
         'deleted_at',
         'created_by_id',
+
     ];
 
     public function created_by()
