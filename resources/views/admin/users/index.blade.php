@@ -38,7 +38,7 @@
 {{--                            {{ trans('cruds.user.fields.roles') }}--}}
 {{--                        </th>--}}
                         <th>
-                            &nbsp;
+                            {{ trans('cruds.user.fields.operations') }}
                         </th>
                     </tr>
                 </thead>
@@ -137,7 +137,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 10,
   });
-  $('.datatable-User:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-User:not(.ajaxTable)').DataTable()
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();

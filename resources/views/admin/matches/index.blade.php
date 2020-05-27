@@ -53,7 +53,7 @@
                             {{ trans('cruds.match.fields.active') }}
                         </th>
                         <th>
-                            &nbsp;
+                            &nbsp;{{ trans('cruds.match.fields.operations') }}
                         </th>
                     </tr>
                 </thead>
@@ -173,7 +173,8 @@ $.extend(true, $.fn.dataTable.defaults, {
     order: [[ 1, 'desc' ]],
     pageLength: 10,
 });
-$('.datatable-Match:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+
+$('.datatable-Match:not(.ajaxTable)').DataTable()
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();

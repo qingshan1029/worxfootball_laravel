@@ -41,7 +41,7 @@
                             {{ trans('cruds.player.fields.credits') }}
                         </th>
                         <th>
-
+                            {{ trans('cruds.player.fields.operations') }}
                         </th>
                     </tr>
                 </thead>
@@ -140,7 +140,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 10,
   });
-  $('.datatable-User:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-User:not(.ajaxTable)').DataTable()
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();
