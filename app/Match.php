@@ -2,29 +2,16 @@
 
 namespace App;
 
-use App\Traits\MultiTenantModelTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\OpeningHours\OpeningHours;
 
-class Match extends Model implements HasMedia
+class Match extends Model
 {
-    use SoftDeletes, MultiTenantModelTrait, HasMediaTrait;
-
     public $table = 'matches';
-
-    protected $appends = [
-        'photos', 'thumbnail'
-    ];
 
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at',
     ];
 
     protected $fillable = [
@@ -41,15 +28,7 @@ class Match extends Model implements HasMedia
         'credits',
         'created_at',
         'updated_at',
-        'deleted_at',
-        'created_by_id',
-
     ];
-
-    public function created_by()
-    {
-        return $this->belongsTo(User::class, 'created_by_id');
-    }
 
     /**
      * Set attribute to date format
@@ -81,15 +60,5 @@ class Match extends Model implements HasMedia
         } else {
             return '';
         }
-    }
-
-    public function getPhotosAttribute()
-    {
-        return '';
-    }
-
-    public function getThumbnailAttribute()
-    {
-        return '';
     }
 }

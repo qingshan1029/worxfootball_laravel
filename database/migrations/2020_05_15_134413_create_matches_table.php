@@ -41,10 +41,6 @@ class CreateMatchesTable extends Migration
             $table->integer('credits');
 
             $table->timestamps();
-
-            $table->softDeletes();
-
-            $table->index(['deleted_at']);
         });
     }
 

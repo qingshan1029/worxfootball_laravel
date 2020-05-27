@@ -98,12 +98,15 @@ class MatchesController extends Controller
     {
         abort_if(Gate::denies('match_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.matches.show', compact('match'));
+        $bookingPlayers = $this->searchBookingPlayers($match['id']);
+
+        return view('admin.matches.show', compact('match', 'bookingPlayers'));
     }
 
     public function destroy(Match $match)
     {
         abort_if(Gate::denies('match_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         $path = 'uploads/host/' . $match->getAttribute('host_photo');
         if($path != "uploads/host/host_photo_empty.png" && File::isFile($path)) {
@@ -128,6 +131,16 @@ class MatchesController extends Controller
         $match->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function searchBookingPlayers($matchId)
+    {
+        return
+            Booking::selectRaw("*")
+                ->leftJoin('players', 'bookings.player_id', '=', 'players.id')
+                ->where('match_id', '=', $matchId)
+                ->get();
+
     }
     public function getMatches($request)
     {

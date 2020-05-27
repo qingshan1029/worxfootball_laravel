@@ -2,30 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d506534-fef1-4d5e-89e1-14e26b2badf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BookingAPIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Booking.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookingsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MatchesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MatchesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/MatchAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/MatchAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BookingAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BookingAPIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreBookingRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreBookingRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreMatchRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMatchRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UpdateBookingRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateBookingRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Match.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Match.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_15_134413_create_matches_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_15_134413_create_matches_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_22_012028_create_bookings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_22_012028_create_bookings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/MathesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/MathesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/bookings/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bookings/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/bookings/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bookings/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/bookings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bookings/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/bookings/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bookings/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,6 +249,7 @@
       <workItem from="1590483074839" duration="4055000" />
       <workItem from="1590505867039" duration="1024000" />
       <workItem from="1590506998242" duration="10664000" />
+      <workItem from="1590545127003" duration="5773000" />
     </task>
     <servers />
   </component>
@@ -301,10 +286,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2061" y="226" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590486518474" />
-    <state x="2169" y="177" width="1146" height="863" key="find.popup" timestamp="1590510847860">
+    <state x="2169" y="177" width="1146" height="863" key="find.popup" timestamp="1590549561941">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2169" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590510847860" />
+    <state x="2169" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590549561941" />
     <state x="411" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1589700455439" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1590022488229">
       <screen x="0" y="0" width="1920" height="1040" />

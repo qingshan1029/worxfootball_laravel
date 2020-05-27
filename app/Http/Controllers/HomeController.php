@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         $matches = Match::all();
 
-        $mapMatches = $matches->makeHidden(['active', 'created_at', 'updated_at', 'deleted_at', 'players', 'rules']);
+        $mapMatches = $matches->makeHidden(['active', 'created_at', 'updated_at', 'players', 'rules']);
 
         $latitude = $matches->count() ? $matches->average('latitude') : 51.5073509;
         $longitude = $matches->count() ? $matches->average('longitude') : -0.12775829999998223;

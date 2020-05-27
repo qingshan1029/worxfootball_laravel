@@ -40,7 +40,7 @@ class BookingAPIController extends Controller
             ->first();
 
         if( empty($match) )
-            return response()->json(['error'=>'player is not exist.'], 401);
+            return response()->json(['error'=>'match is not exist.'], 401);
 
         if( $match['rules'] <= $match['reservations'])
             return response()->json(['error'=>'booking is full.'], 401);
@@ -48,7 +48,7 @@ class BookingAPIController extends Controller
         $player = Player::where('id', '=', $request['player_id'])->first();
 
         if( empty($player) )
-            return response()->json(['error'=>'match is not exist.'], 401);
+            return response()->json(['error'=>'player is not exist.'], 401);
 
         // create a new Booking
         $booking  = new Booking;
