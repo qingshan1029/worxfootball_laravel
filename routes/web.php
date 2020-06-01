@@ -47,6 +47,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Bookings
     Route::delete('bookings/destroy', 'BookingsController@massDestroy')->name('bookings.massDestroy');
     Route::resource('bookings', 'BookingsController');
+
+    // Payment
+    Route::resource('payments', 'PaymentsController');
 });
 
 

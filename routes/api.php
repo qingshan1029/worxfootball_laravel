@@ -29,6 +29,8 @@ Route::post('player/players', 'Api\PlayerAPIController@players');
 Route::post('matches', 'Api\MatchAPIController@getMatches');
 Route::post('reserve', 'Api\BookingAPIController@createReservations');
 
+Route::post('pay', 'Api\PaymentAPIController@pay');
+
 
 //Route::group(['middleware' => 'auth:api'], function() {
 //    Route::post('users', 'Api\UserAPIController@users');

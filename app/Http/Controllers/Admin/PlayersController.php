@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Booking;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Player;
@@ -85,7 +86,9 @@ class PlayersController extends Controller
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.players.show', compact('player'));
+        $transactions = $this->getTransactions($player['id']);
+
+        return view('admin.players.show', compact('player', 'transactions'));
     }
 
     public function destroy(Player $player)
@@ -111,5 +114,15 @@ class PlayersController extends Controller
         $player->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function getTransactions($player_id)
+    {
+        return
+            Booking::selectRaw("matches.*, bookings.*, bookings.updated_at as payment_time")
+                    ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
+                    ->where('player_id', '=', $player_id)
+                    ->orderBy('matches.start_time', 'desc')
+                    ->get();
     }
 }
