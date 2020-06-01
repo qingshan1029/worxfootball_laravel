@@ -66,7 +66,14 @@
                             {{ $match->rules }}
                         </td>
                     </tr>
-
+                    <tr>
+                        <th>
+                            {{ trans('cruds.match.fields.max_players') }}
+                        </th>
+                        <td>
+                            {{ $match->max_players }}
+                        </td>
+                    </tr>
                     <tr>
                         <th>
                             {{ trans('cruds.match.fields.reservations') }}
@@ -81,18 +88,18 @@
                             {{ trans('cruds.match.fields.credits') }}
                         </th>
                         <td>
-                            {{ $match->credits }}
+                            {{ $match->credits }} £
                         </td>
                     </tr>
 
-                    <tr>
-                        <th>
-                            {{ trans('cruds.match.fields.active') }}
-                        </th>
-                        <td>
-                            <input type="checkbox" disabled="disabled" {{ $match->active ? 'checked' : '' }}>
-                        </td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <th>--}}
+{{--                            {{ trans('cruds.match.fields.active') }}--}}
+{{--                        </th>--}}
+{{--                        <td>--}}
+{{--                            <input type="checkbox" disabled="disabled" {{ $match->active ? 'checked' : '' }}>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
                 </tbody>
             </table>
 {{--            <div class="form-group">--}}

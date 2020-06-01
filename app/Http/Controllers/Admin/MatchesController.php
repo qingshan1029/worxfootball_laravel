@@ -37,8 +37,8 @@ class MatchesController extends Controller
     {
         abort_if(Gate::denies('match_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        if( $request['rules'] < $request['reservations'] )
-            abort_if(true, Response::HTTP_FORBIDDEN, 'reservations must less than rules');
+        if( $request['max_players'] < $request['reservations'] )
+            abort_if(true, Response::HTTP_FORBIDDEN, 'reservations must less than number of players');
 
         if( $request->hasFile('host_photo') ) {
             $file = $request->file('host_photo');
@@ -65,8 +65,8 @@ class MatchesController extends Controller
 
     public function update(UpdateMatchRequest $request, Match $match)
     {
-        if( $request['rules'] < $request['reservations'] )
-            abort_if(true, Response::HTTP_FORBIDDEN, 'reservations must less than rules');
+        if( $request['max_players'] < $request['reservations'] )
+            abort_if(true, Response::HTTP_FORBIDDEN, 'reservations must less than number of players');
 
         if( $request->hasFile('host_photo') ) {
             $path = 'uploads/host/' . $match->getAttribute('host_photo');

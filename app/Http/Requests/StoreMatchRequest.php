@@ -34,15 +34,18 @@ class StoreMatchRequest extends FormRequest
             'address' => [
                 'required',
             ],
-            'reservations' => [
-                'required',
-            ],
+//            'reservations' => [
+//                'required',
+//            ],
             'rules' => [
                 'required',
             ],
-            'credits' => [
+            'max_players' => [
                 'required',
             ],
+//            'credits' => [
+//                'required',
+//            ],
         ];
     }
 }

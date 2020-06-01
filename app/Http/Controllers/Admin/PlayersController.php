@@ -118,11 +118,19 @@ class PlayersController extends Controller
 
     public function getTransactions($player_id)
     {
+//        return
+//            Booking::selectRaw("matches.*, bookings.*, bookings.updated_at as payment_time")
+//                    ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
+//                    ->where('player_id', '=', $player_id)
+//                    ->orderBy('matches.start_time', 'desc')
+//                    ->get();
+
         return
-            Booking::selectRaw("matches.*, bookings.*, bookings.updated_at as payment_time")
-                    ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
-                    ->where('player_id', '=', $player_id)
-                    ->orderBy('matches.start_time', 'desc')
-                    ->get();
+            Booking::selectRaw("matches.host_photo, matches.host_name, matches.address, matches.credits,
+                                matches.start_time, bookings.updated_at as payment_time")
+                ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
+                ->where('player_id', '=', $player_id)
+                ->orderBy('matches.start_time', 'desc')
+                ->get();
     }
 }

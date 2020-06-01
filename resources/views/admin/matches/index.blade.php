@@ -43,16 +43,17 @@
                         <th>
                             {{ trans('cruds.match.fields.rules') }}
                         </th>
-                        <th>
+                        <th style="max-width: 60px; text-align: center">
+                            {{ trans('cruds.match.fields.max_players') }}
+                        </th>
+                        <th style="max-width: 60px; text-align: center">
                             {{ trans('cruds.match.fields.reservations') }}
                         </th>
                         <th>
                             {{ trans('cruds.match.fields.credits') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.match.fields.active') }}
-                        </th>
-                        <th>
+
+                        <th style="width: 160px">
                             &nbsp;{{ trans('cruds.match.fields.operations') }}
                         </th>
                     </tr>
@@ -80,7 +81,7 @@
                                 {{ $match->start_time ?? '' }}
                             </td>
 
-                            <td>
+                            <td >
                                 {{ $match->address ?? '' }}
                             </td>
 
@@ -89,17 +90,21 @@
                             </td>
 
                             <td>
+                                {{ $match->max_players ?? '' }}
+                            </td>
+
+                            <td>
                                 {{ $match->reservations ?? '' }}
                             </td>
 
                             <td>
-                                {{ $match->credits ?? '' }}
+                                {{ $match->credits ?? '' }} £
                             </td>
 
-                                <td>
-                                <span style="display:none">{{ $match->active ?? '' }}</span>
-                                <input type="checkbox" disabled="disabled" {{ $match->active ? 'checked' : '' }}>
-                            </td>
+{{--                            <td>--}}
+{{--                                <span style="display:none">{{ $match->active ?? '' }}</span>--}}
+{{--                                <input type="checkbox" disabled="disabled" {{ $match->active ? 'checked' : '' }}>--}}
+{{--                            </td>--}}
 
                             <td>
                                 @can('match_show')

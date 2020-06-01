@@ -31,16 +31,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.match.fields.host_name_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label class="required" for="title">{{ trans('cruds.match.fields.title') }}</label>
-                <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="{{ old('title', '') }}" required>
-                @if($errors->has('title'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('title') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.match.fields.title_helper') }}</span>
-            </div>
+
             <div class="form-group">
                 <label class="required control-label" for="start_time">{{ trans('cruds.match.fields.start_time') }}</label>
                 <input class="form-control datetime" type="text" name="start_time" id="start_time " required>
@@ -52,8 +43,30 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.match.fields.start_time_helper') }}</span>
             </div>
+
             <div class="form-group">
-                <label for="rules">{{ trans('cruds.match.fields.rules') }}</label>
+                <label class="required" for="title">{{ trans('cruds.match.fields.title') }}</label>
+                <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="{{ old('title', '') }}" required>
+                @if($errors->has('title'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('title') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.match.fields.title_helper') }}</span>
+            </div>
+
+            <div class="form-group">
+                <label class="required" for="rules">{{ trans('cruds.match.fields.rules') }}</label>
+                <input class="form-control {{ $errors->has('rules') ? 'is-invalid' : '' }}" type="text" name="rules" id="rules" value="{{ old('rules', '') }}" required>
+                @if($errors->has('rules'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('rules') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.match.fields.rules_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="max_players">{{ trans('cruds.match.fields.max_players') }}</label>
 {{--                <textarea class="form-control {{ $errors->has('rules') ? 'is-invalid' : '' }}" name="rules" id="rules" required>{{ old('description') }}</textarea>--}}
 {{--                @if($errors->has('rules'))--}}
 {{--                    <div class="invalid-feedback">--}}
@@ -64,10 +77,10 @@
 
 
                 <div class="form-inline">
-                    <select class="custom-select my-0 mr-sm-2" name="rules">
-                        @foreach(range(6, 22, 2) as $rules)
+                    <select class="custom-select my-0 mr-sm-2" name="max_players">
+                        @foreach(range(6, 22, 2) as $max_players)
                             <option
-                                value="{{$rules}}">{{$rules}}
+                                value="{{$max_players}}">{{$max_players}}
                             </option>
                         @endforeach
                     </select>
@@ -92,16 +105,16 @@
                 <div style="width: 100%; height: 100%" id="address-map"></div>
             </div>
 
-            <label>{{ trans('cruds.match.fields.reservations') }}</label>
-            <div class="form-inline">
-                <select class="custom-select my-0 mr-sm-2" name="reservations">
-                    @foreach(range(0, 22) as $reservations)
-                        <option
-                            value="{{$reservations}}">{{$reservations}}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+{{--            <label>{{ trans('cruds.match.fields.reservations') }}</label>--}}
+{{--            <div class="form-inline">--}}
+{{--                <select class="custom-select my-0 mr-sm-2" name="reservations">--}}
+{{--                    @foreach(range(0, 22) as $reservations)--}}
+{{--                        <option--}}
+{{--                            value="{{$reservations}}">{{$reservations}}--}}
+{{--                        </option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+{{--            </div>--}}
 
             <div class="form-group">
                 <label class="required control-label" for="credits">{{ trans('cruds.match.fields.credits') }}</label>
@@ -115,18 +128,18 @@
                 <span class="help-block">{{ trans('cruds.match.fields.credits_helper') }}</span>
             </div>
 
-            <div class="form-group">
-                <div class="form-check {{ $errors->has('active') ? 'is-invalid' : '' }}">
-                    <input class="form-check-input" type="checkbox" name="active" id="active" value="1" {{ old('active', 0) == 1 ? 'checked' : '' }}>
-                    <label class="form-check-label" for="active">{{ trans('cruds.match.fields.active') }}</label>
-                </div>
-                @if($errors->has('active'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('active') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.match.fields.active_helper') }}</span>
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <div class="form-check {{ $errors->has('active') ? 'is-invalid' : '' }}">--}}
+{{--                    <input class="form-check-input" type="checkbox" name="active" id="active" value="1" {{ old('active', 0) == 1 ? 'checked' : '' }}>--}}
+{{--                    <label class="form-check-label" for="active">{{ trans('cruds.match.fields.active') }}</label>--}}
+{{--                </div>--}}
+{{--                @if($errors->has('active'))--}}
+{{--                    <div class="invalid-feedback">--}}
+{{--                        {{ $errors->first('active') }}--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--                <span class="help-block">{{ trans('cruds.match.fields.active_helper') }}</span>--}}
+{{--            </div>--}}
             <div class="form-group my-4">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}

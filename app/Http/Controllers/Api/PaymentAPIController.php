@@ -111,7 +111,7 @@ class PaymentAPIController extends Controller
         if( empty($match) )
             return ['error'=>'match is not exist.'];
 
-        if( $match['rules'] <= $match['reservations'])
+        if( $match['max_players'] <= $match['reservations'])
             return ['error'=>'booking is full.'];
 
         if( now() >= Date($match['start_time']))

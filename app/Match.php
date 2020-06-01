@@ -23,6 +23,7 @@ class Match extends Model
         'reservations',
         'active',
         'rules',
+        'max_players',
         'latitude',
         'longitude',
         'credits',

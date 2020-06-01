@@ -68,7 +68,7 @@ class PaymentsController extends Controller
         $match = $result['match'];
         $player = $result['player'];
 
-        $result = $this->checkPayment($request);
+        $result = $this->checkPayment($request, $match['credits']);
 
         if( $result['success'] == false)
             return response()->json($result, 401);
@@ -175,7 +175,7 @@ class PaymentsController extends Controller
         if( empty($match) )
             return ['error'=>'match is not exist.'];
 
-        if( $match['rules'] <= $match['reservations'])
+        if( $match['max_players'] <= $match['reservations'])
             return ['error'=>'booking is full.'];
 
         if( now() >= Date($match['start_time']))
@@ -188,7 +188,7 @@ class PaymentsController extends Controller
 
         return ['error'=> '', 'match' => $match, 'player' => $player];
     }
-    public function checkPayment($request)
+    public function checkPayment($request, $credits)
     {
         $email = '';
         if(empty($email))
@@ -198,6 +198,7 @@ class PaymentsController extends Controller
         $name = 'unknown';
         $description = 'for football';
         $amount = $request['amount'];
+        $amount = $credits;
         $card_number= $request['card_number'];
         $card_month= $request['card_month'];
         $card_year= $request['card_year'];

@@ -49,27 +49,27 @@
                 </li>
             @endcan
 
-{{--            @can('user_access')--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route("admin.bookings.index") }}" class="nav-link {{ request()->is('admin/bookings') || request()->is('admin/bookings/*') ? 'active' : '' }}">--}}
-{{--                        <i class="fas fa-ticket-alt nav-icon">--}}
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.bookings.index") }}" class="nav-link {{ request()->is('admin/bookings') || request()->is('admin/bookings/*') ? 'active' : '' }}">
+                        <i class="fas fa-ticket-alt nav-icon">
 
-{{--                        </i>--}}
-{{--                        {{ trans('cruds.booking.title') }}--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
+                        </i>
+                        {{ trans('cruds.booking.title') }}
+                    </a>
+                </li>
+            @endcan
 
-{{--            @can('user_access')--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route("admin.payments.index") }}" class="nav-link {{ request()->is('admin/payments') || request()->is('admin/payments/*') ? 'active' : '' }}">--}}
-{{--                        <i class="fas fa-money-check-alt nav-icon">--}}
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.payments.index") }}" class="nav-link {{ request()->is('admin/payments') || request()->is('admin/payments/*') ? 'active' : '' }}">
+                        <i class="fas fa-money-check-alt nav-icon">
 
-{{--                        </i>--}}
-{{--                        payment--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
+                        </i>
+                        payment
+                    </a>
+                </li>
+            @endcan
 {{--            @can('user_management_access')--}}
 {{--                <li class="nav-item nav-dropdown">--}}
 {{--                    <a class="nav-link  nav-dropdown-toggle" href="#">--}}

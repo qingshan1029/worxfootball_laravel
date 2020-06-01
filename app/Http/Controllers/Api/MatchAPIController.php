@@ -92,6 +92,7 @@ class MatchAPIController extends Controller
             'latitude' => $match->latitude,
             'longitude' => $match->longitude,
             'rules' => $match->rules,
+            'max_players' => $match->max_players,
             'reservations' => $match->reservations,
             'credits' => $match->credits,
             'players' => $players,

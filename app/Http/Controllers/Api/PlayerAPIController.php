@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Api;
+use App\Booking;
 use App\Http\Controllers\Controller;
 use App\Player;
 use App\User;
@@ -82,5 +83,33 @@ class PlayerAPIController extends Controller
     {
         $players = Player::all();
         return response()->json(['user' => $players], $this-> successStatus);
+    }
+
+    public function getTransactions(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'player_id' => [
+                'required',
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+
+//        return
+//            Booking::selectRaw("matches.*, bookings.*, bookings.updated_at as payment_time")
+//                    ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
+//                    ->where('player_id', '=', $player_id)
+//                    ->orderBy('matches.start_time', 'desc')
+//                    ->get();
+
+          $transactions = Booking::selectRaw("matches.host_photo, matches.host_name, matches.address, matches.credits,
+                                matches.start_time, bookings.updated_at as payment_time")
+                ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
+                ->where('player_id', '=', $request['player_id'])
+                ->orderBy('matches.start_time', 'desc')
+                ->get();
+          return response()->json(['data' => $transactions], $this-> successStatus);
     }
 }

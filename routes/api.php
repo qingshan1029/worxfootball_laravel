@@ -25,9 +25,10 @@ Route::post('users', 'Api\UserAPIController@users');
 Route::post('player/login', 'Api\PlayerAPIController@login');
 Route::post('player/register', 'Api\PlayerAPIController@register');
 Route::post('player/players', 'Api\PlayerAPIController@players');
+Route::post('player/transactions', 'Api\PlayerAPIController@getTransactions');
 
 Route::post('matches', 'Api\MatchAPIController@getMatches');
-Route::post('reserve', 'Api\BookingAPIController@createReservations');
+//Route::post('reserve', 'Api\BookingAPIController@createReservations');
 
 Route::post('pay', 'Api\PaymentAPIController@pay');
 

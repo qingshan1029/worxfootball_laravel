@@ -30,7 +30,9 @@ class CreateMatchesTable extends Migration
 
             $table->double('longitude');
 
-            $table->integer('rules');
+            $table->string('rules');
+
+            $table->integer('max_players')->default(0);
 
             $table->integer('reservations');
 

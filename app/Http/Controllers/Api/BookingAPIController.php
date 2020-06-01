@@ -42,7 +42,7 @@ class BookingAPIController extends Controller
         if( empty($match) )
             return response()->json(['error'=>'match is not exist.'], 401);
 
-        if( $match['rules'] <= $match['reservations'])
+        if( $match['max_players'] <= $match['reservations'])
             return response()->json(['error'=>'booking is full.'], 401);
 
         $player = Player::where('id', '=', $request['player_id'])->first();
