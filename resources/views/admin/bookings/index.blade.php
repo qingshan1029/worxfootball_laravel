@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 @can('user_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.bookings.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.booking.title_singular') }}
-            </a>
-        </div>
-    </div>
+{{--    <div style="margin-bottom: 10px;" class="row">--}}
+{{--        <div class="col-lg-12">--}}
+{{--            <a class="btn btn-success" href="{{ route("admin.bookings.create") }}">--}}
+{{--                {{ trans('global.add') }} {{ trans('cruds.booking.title_singular') }}--}}
+{{--            </a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endcan
 <div class="card">
     <div class="card-header">
@@ -23,13 +23,13 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.booking.fields.id') }}
+                            {{ trans('cruds.booking.fields.match_start_time') }}
                         </th>
                         <th>
-                            {{ trans('cruds.booking.fields.match_id') }}
+                            {{ trans('cruds.booking.fields.match_address') }}
                         </th>
                         <th>
-                            {{ trans('cruds.booking.fields.player_id') }}
+                            {{ trans('cruds.booking.fields.player_info') }}
                         </th>
                         <th>
                             {{ trans('cruds.booking.fields.operations') }}
@@ -43,27 +43,26 @@
 
                             </td>
                             <td>
-                                {{ $bookings['id'] ?? '' }}
+                                {{ $bookings['matches']['start_time'] ?? '' }}
                             </td>
                             <td>
                                 {{ $bookings['matches']['address'] ?? '' }}
                             </td>
                             <td>
-                                {{ $bookings['players']['first_name'] ?? '' }}  {{ $bookings['players']['last_name'] ?? ''}}
-
+                                {{ $bookings['players']['email'] ?? '' }} {{', '}}{{ $bookings['players']['first_name'] ?? '' }}  {{ $bookings['players']['last_name'] ?? ''}}
                             </td>
                             <td>
-                                @can('user_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.bookings.show', $bookings['id']) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+{{--                                @can('user_show')--}}
+{{--                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.bookings.show', $bookings['id']) }}">--}}
+{{--                                        {{ trans('global.view') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
-                                @can('user_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.bookings.edit', $bookings['id']) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
+{{--                                @can('user_edit')--}}
+{{--                                    <a class="btn btn-xs btn-info" href="{{ route('admin.bookings.edit', $bookings['id']) }}">--}}
+{{--                                        {{ trans('global.edit') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
                                 @can('user_delete')
                                     <form action="{{ route('admin.bookings.destroy', $bookings['id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">

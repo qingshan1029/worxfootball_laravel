@@ -19,7 +19,7 @@ class UpdatePlayerRequest extends FormRequest
     public function rules()
     {
         return [
-            'credits' => [
+            'email' => [
                 'required',
             ],
         ];

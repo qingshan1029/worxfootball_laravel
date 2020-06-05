@@ -25,6 +25,8 @@ Route::post('users', 'Api\UserAPIController@users');
 Route::post('player/login', 'Api\PlayerAPIController@login');
 Route::post('player/register', 'Api\PlayerAPIController@register');
 Route::post('player/players', 'Api\PlayerAPIController@players');
+Route::post('player/info', 'Api\PlayerAPIController@info');
+Route::post('player/update', 'Api\PlayerAPIController@update');
 Route::post('player/delete', 'Api\PlayerAPIController@delete');
 
 

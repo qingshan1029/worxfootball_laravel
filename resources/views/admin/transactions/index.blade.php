@@ -23,7 +23,7 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.transaction.fields.player_id') }}
+                            {{ trans('cruds.transaction.fields.player_info') }}
                         </th>
                         <th>
                             {{ trans('cruds.transaction.fields.datetime') }}
@@ -49,7 +49,7 @@
 
                             </td>
                             <td>
-                                {{ $transaction->player_id ?? '' }}
+                                {{ $transaction->email ?? '' }} {{',  '}} {{ $transaction->first_name ?? '' }} {{ $transaction->last_name ?? '' }}
                             </td>
                             <td>
                                 {{ $transaction->datetime ?? '' }}

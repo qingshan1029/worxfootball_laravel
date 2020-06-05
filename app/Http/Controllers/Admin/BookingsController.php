@@ -23,8 +23,8 @@ class BookingsController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $bookings = Booking::all();
-        $bookings = Booking::selectRaw("matches.id as match_id, players.id as player_id, players.first_name, players.last_name,
+        //$bookings = Booking::all();
+        $bookings = Booking::selectRaw("matches.id as match_id, players.id as player_id, players.email, players.first_name, players.last_name,
                         players.birthday, players.photo, players.credits, matches.*, bookings.id")
             ->offset(0)
             ->limit(20)
@@ -34,6 +34,8 @@ class BookingsController extends Controller
 
         $response = [];
         foreach ($bookings as $booking) {
+            if( $booking['email'] == null ) // player does not exist
+                continue;
             if( $booking['first_name'] == null ) // player does not exist
                 continue;
             if( $booking['host_name'] == null ) // match does not exist
@@ -271,6 +273,7 @@ class BookingsController extends Controller
     public function transformPlayers($request) {
         return [
             'id' => $request->player_id,
+            'email' => $request->email,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'birthday' => $request->birthday,

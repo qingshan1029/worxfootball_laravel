@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Player;
 use App\Transaction;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +15,10 @@ class TransactionsController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $transactions = Transaction::all();
-
+        //$transactions = Transaction::all();
+        $transactions = Transaction::selectRaw("*")
+            ->leftJoin('players', 'player_id', '=', 'players.id')
+            ->get();
         return view('admin.transactions.index', compact('transactions'));
     }
 

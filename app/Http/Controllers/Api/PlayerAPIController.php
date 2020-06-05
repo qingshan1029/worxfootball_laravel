@@ -7,6 +7,7 @@ use App\Player;
 use App\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 class PlayerAPIController extends Controller
@@ -84,6 +85,61 @@ class PlayerAPIController extends Controller
     {
         $players = Player::all();
         return response()->json(['user' => $players], $this-> successStatus);
+    }
+    public function info(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'player_id' => [
+                'required',
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+
+        $player = Player::where('id', '=', $request['player_id'])->first();
+
+        return response()->json(['user' => $player], $this-> successStatus);
+    }
+
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'player_id' => [
+                'required',
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+
+        $player = Player::where('id', '=', $request['player_id'])->first();
+
+        if( $request->hasFile('photo') ) {
+            $path = 'uploads/photo/' . $player->getAttribute('photo');
+//            if (Storage::exists($path)) {
+//                Storage::delete($path);
+//            }
+
+            if($path != "uploads/photo/photo_empty.png" && File::isFile($path)) {
+                File::delete($path);
+            }
+
+            $file = $request->file('photo');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/photo/', $filename);
+            $request->merge(['photo' => $filename]);
+
+        } else {
+
+        }
+
+        $player = $player->update($request->input());
+
+        return response()->json(['user' => $player], $this-> successStatus);
     }
 
     public function delete(Request $request)

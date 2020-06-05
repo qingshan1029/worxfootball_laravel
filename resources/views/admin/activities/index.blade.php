@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 @can('user_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.activities.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.activity.title_singular') }}
-            </a>
-        </div>
-    </div>
+{{--    <div style="margin-bottom: 10px;" class="row">--}}
+{{--        <div class="col-lg-12">--}}
+{{--            <a class="btn btn-success" href="{{ route("admin.activities.create") }}">--}}
+{{--                {{ trans('global.add') }} {{ trans('cruds.activity.title_singular') }}--}}
+{{--            </a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endcan
 <div class="card">
     <div class="card-header">
@@ -23,7 +23,7 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.activity.fields.player_id') }}
+                            {{ trans('cruds.activity.fields.player_info') }}
                         </th>
                         <th>
                             {{ trans('cruds.activity.fields.type') }}
@@ -43,32 +43,32 @@
 
                             </td>
                             <td>
-                                {{ $activity->player_id ?? '' }}
+                                {{ $activity->email ?? '' }} {{',  '}} {{ $activity->first_name ?? '' }} {{ $activity->last_name ?? '' }}
                             </td>
                             <td>
                                 @if($activity->type == 1)
-                                    feedback
+                                    Feedback
                                 @elseif($activity->type == 2)
-                                    report
+                                    Report
                                 @elseif($activity->type == 3)
-                                    reason
+                                    Deleted reason
                                 @endif
                             </td>
                             <td>
                                 {{ $activity->content ?? '' }}
                             </td>
                             <td>
-                                @can('user_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.activities.show', $activity->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+{{--                                @can('user_show')--}}
+{{--                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.activities.show', $activity->id) }}">--}}
+{{--                                        {{ trans('global.view') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
-                                @can('user_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.activities.edit', $activity->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
+{{--                                @can('user_edit')--}}
+{{--                                    <a class="btn btn-xs btn-info" href="{{ route('admin.activities.edit', $activity->id) }}">--}}
+{{--                                        {{ trans('global.edit') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
                                 @can('user_delete')
                                     <form action="{{ route('admin.activities.destroy', $activity->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">

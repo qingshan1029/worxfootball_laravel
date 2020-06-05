@@ -16,8 +16,10 @@ class ActivitiesController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $activities = Activity::all();
-
+        //$activities = Activity::all();
+        $activities = Activity::selectRaw("*")
+            ->leftJoin('players', 'player_id', '=', 'players.id')
+            ->get();
         return view('admin.activities.index', compact('activities'));
     }
 

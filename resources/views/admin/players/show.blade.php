@@ -86,13 +86,13 @@
 
                 </th>
                 <th>
-                    {{ trans('cruds.transaction.fields.match_id') }}
+                    {{ trans('cruds.transaction.fields.event_name') }}
                 </th>
                 <th>
                     {{ trans('cruds.transaction.fields.datetime') }}
                 </th>
                 <th>
-                    {{ trans('cruds.transaction.fields.event_name') }}
+                    {{ trans('cruds.transaction.fields.event') }}
                 </th>
                 <th>
                     {{ trans('cruds.transaction.fields.amount') }}
@@ -109,14 +109,34 @@
 
                     </td>
                     <td>
-                        {{ $transaction->match_id ?? '' }}
+                        {{ $transaction->event_name ?? '' }}
                     </td>
                     <td>
                         {{ $transaction->datetime ?? '' }}
                     </td>
-                    <td>
-                        {{ $transaction->event_name ?? '' }}
-                    </td>
+                    @if($transaction->event_name == 'reserved' && Date($transaction->start_time) > now())
+                        <td class="row m-0" style="border: none; padding-left: 0">
+                            <div class="col-lg-8">
+                                {{ $transaction->address ?? '' }}
+                            </div>
+                            <div class="col-lg-4" style="background: rgb(255,165,139); color: #545454; text-align: center;">
+                                {{ $transaction->start_time ?? '' }}
+                            </div>
+                        </td>
+                    @elseif($transaction->event_name == 'reserved')
+                        <td class="row m-0" style="border: none; padding-left: 0">
+                            <div class="col-lg-8">
+                                {{ $transaction->address ?? '' }}
+                            </div>
+                            <div class="col-lg-4" style="background: rgb(91,174,227); color: white; text-align: center;">
+                                {{ $transaction->start_time ?? '' }}
+                            </div>
+                        </td>
+                    @else
+                        <td>
+                            {{ $transaction->event_name ?? '' }}
+                        </td>
+                    @endif
                     <td>
                         {{ $transaction->amount ?? '' }}
                     </td>

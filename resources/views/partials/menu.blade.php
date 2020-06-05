@@ -52,7 +52,7 @@
             @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.bookings.index") }}" class="nav-link {{ request()->is('admin/bookings') || request()->is('admin/bookings/*') ? 'active' : '' }}">
-                        <i class="fas fa-ticket-alt nav-icon">
+                        <i class="fas fa-calendar-check nav-icon">
 
                         </i>
                         {{ trans('cruds.booking.title') }}
@@ -60,21 +60,21 @@
                 </li>
             @endcan
 
-            @can('user_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.payments.index") }}" class="nav-link {{ request()->is('admin/payments') || request()->is('admin/payments/*') ? 'active' : '' }}">
-                        <i class="fas fa-money-check-alt nav-icon">
+{{--            @can('user_access')--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route("admin.payments.index") }}" class="nav-link {{ request()->is('admin/payments') || request()->is('admin/payments/*') ? 'active' : '' }}">--}}
+{{--                        <i class="fas fa-money-check-alt nav-icon">--}}
 
-                        </i>
-                        payment
-                    </a>
-                </li>
-            @endcan
+{{--                        </i>--}}
+{{--                        payment--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
 
             @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.activities.index") }}" class="nav-link {{ request()->is('admin/activities') || request()->is('admin/activities/*') ? 'active' : '' }}">
-                        <i class="fas fa-money-check-alt nav-icon">
+                        <i class="fas fa-chart-line nav-icon">
 
                         </i>
                         Activity
@@ -85,7 +85,7 @@
             @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.transactions.index") }}" class="nav-link {{ request()->is('admin/transactions') || request()->is('admin/transactions/*') ? 'active' : '' }}">
-                        <i class="fas fa-money-check-alt nav-icon">
+                        <i class="fas fa-history nav-icon">
 
                         </i>
                         Transaction
