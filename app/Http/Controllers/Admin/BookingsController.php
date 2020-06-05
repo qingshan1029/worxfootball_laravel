@@ -9,6 +9,7 @@ use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Match;
 use App\Player;
+use App\Transaction;
 use Exception;
 use http\Env\Request;
 use Illuminate\Support\Facades\Validator;
@@ -167,6 +168,10 @@ class BookingsController extends Controller
         if( empty($player) )
             return response()->json(['error'=>'player is not exist.'], 401);
 
+        // check my credits
+        if($player['credits'] < $match['credits'])
+            return response()->json(['error'=>'Your credit is not enough. Please do stripe payment.'], 401);
+
         // create a new Booking
         $booking  = new Booking;
         $booking['match_id'] = $match['id'];
@@ -177,6 +182,27 @@ class BookingsController extends Controller
         $reservations = $match['reservations']+1;
         $match['reservations'] = $reservations;
         $match->save();
+
+        // decrease amount in your transaction
+        $info = [
+            'player_id' => $player['id'],
+            'match_id' => $match['id'],         // valid in case of reservation
+            'datetime' => now(),
+            'event_name' => 'reserved',
+            'amount' => -$match['credits'],      // virtual money (to decrease, put minus symbol)
+            'credit' => 0,                      // none
+        ];
+
+        // create one new transaction
+        Transaction::create($info);
+
+        // calculate sum the amount(virtual) to all transactions by player_id
+        $purchases = Transaction::where('player_id', '=', $player['id'])
+            ->sum('amount');
+
+        // update credits of player by player_id
+        $player = Player::where('id', '=', $player['id'])->first();
+        $player->update(['credits' => $purchases]);
 
         return redirect()->route('admin.bookings.index');
     }

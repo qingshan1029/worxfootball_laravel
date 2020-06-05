@@ -48,6 +48,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('bookings/destroy', 'BookingsController@massDestroy')->name('bookings.massDestroy');
     Route::resource('bookings', 'BookingsController');
 
+    // Activities
+    Route::delete('activities/destroy', 'ActivitiesController@massDestroy')->name('activities.massDestroy');
+    Route::resource('activities', 'ActivitiesController');
+
+    // Transactions
+    Route::delete('transactions/destroy', 'TransactionsController@massDestroy')->name('transactions.massDestroy');
+    Route::resource('transactions', 'TransactionsController');
+
     // Payment
     Route::resource('payments', 'PaymentsController');
 });

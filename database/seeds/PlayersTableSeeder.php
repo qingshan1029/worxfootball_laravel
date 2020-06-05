@@ -20,7 +20,8 @@ class PlayersTableSeeder extends Seeder
                 'last_name'      => 'Son',
                 'birthday'       => '1995-01-01',
                 'photo'          => 'photo_empty.png',
-                'credits'       => 0,
+                'credits'        => 0,
+                'status'         => 1,
             ],
             [
                 'id'             => 2,
@@ -30,7 +31,8 @@ class PlayersTableSeeder extends Seeder
                 'last_name'      => 'Blade',
                 'birthday'       => '1996-05-05',
                 'photo'          => 'photo_empty.png',
-                'credits'       => 2,
+                'credits'        => 0,
+                'status'         => 1,
 //                'password'       => '$2y$10$vUIzDlvfpu2yOATsPYcPaOTY/zgbgwViLIWSfZxSlmRBFV.g/fmOW',
             ],
         ];

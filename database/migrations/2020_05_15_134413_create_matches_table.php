@@ -40,7 +40,7 @@ class CreateMatchesTable extends Migration
 
             $table->double('radius');
 
-            $table->integer('credits');
+            $table->integer('credits');     // virtual money
 
             $table->timestamps();
         });

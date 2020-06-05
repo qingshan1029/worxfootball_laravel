@@ -49,7 +49,7 @@
                         <th style="max-width: 60px; text-align: center">
                             {{ trans('cruds.match.fields.reservations') }}
                         </th>
-                        <th>
+                        <th style="max-width: 50px; text-align: center">
                             {{ trans('cruds.match.fields.credits') }}
                         </th>
 

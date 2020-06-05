@@ -28,7 +28,9 @@ class CreatePlayersTable extends Migration
 
             $table->string('photo');
 
-            $table->integer('credits');
+            $table->integer('credits');     // virtual money
+
+            $table->integer('status');  // 0: pending, 1: active, 2: logout, 3: delete
 
             $table->timestamps();
 

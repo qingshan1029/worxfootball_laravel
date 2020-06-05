@@ -26,7 +26,7 @@ class MathesSeeder extends Seeder
                 'rules' => '6 VS 6',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 39,
+                'credits' => 20,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -40,7 +40,7 @@ class MathesSeeder extends Seeder
                 'rules' => '7 VS 7',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 29,
+                'credits' => 30,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -54,7 +54,7 @@ class MathesSeeder extends Seeder
                 'rules' => '11 VS 11',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 19,
+                'credits' => 10,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -68,7 +68,7 @@ class MathesSeeder extends Seeder
                 'rules' => '9 VS 9',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 49,
+                'credits' => 50,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -82,7 +82,7 @@ class MathesSeeder extends Seeder
                 'rules' => '6 VS 6',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 25,
+                'credits' => 20,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -124,7 +124,7 @@ class MathesSeeder extends Seeder
                 'rules' => '5 VS 5',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 27,
+                'credits' => 30,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -138,7 +138,7 @@ class MathesSeeder extends Seeder
                 'rules' => '9 VS 9',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 35,
+                'credits' => 40,
             ],
             [
                 'host_photo' => 'host_photo_empty.png',
@@ -152,7 +152,7 @@ class MathesSeeder extends Seeder
                 'rules' => '6 VS 6',
                 'reservations' => 0,
                 'active' => 1,
-                'credits' => 38,
+                'credits' => 20,
             ],
         ];
 

@@ -4,6 +4,7 @@ use App\Booking;
 use App\Http\Controllers\Controller;
 use App\Match;
 use App\Player;
+use App\Transaction;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Validator;
@@ -50,6 +51,10 @@ class BookingAPIController extends Controller
         if( empty($player) )
             return response()->json(['error'=>'player is not exist.'], 401);
 
+        // check my credits
+        if($player['credits'] < $match['credits'])
+            return response()->json(['error'=>'Your credit is not enough. Please do stripe payment.'], 401);
+
         // create a new Booking
         $booking  = new Booking;
         $booking['match_id'] = $match['id'];
@@ -60,6 +65,27 @@ class BookingAPIController extends Controller
         $reservations = $match['reservations']+1;
         $match['reservations'] = $reservations;
         $match->save();
+
+        // decrease amount in your transaction
+        $info = [
+            'player_id' => $player['id'],
+            'match_id' => $match['id'],         // valid in case of reservation
+            'datetime' => now(),
+            'event_name' => 'reserved',
+            'amount' => -$match['credits'],      // virtual money (to decrease, put minus symbol)
+            'credit' => 0,                      // none
+        ];
+
+        // create one new transaction
+        Transaction::create($info);
+
+        // calculate sum the amount(virtual) to all transactions by player_id
+        $purchases = Transaction::where('player_id', '=', $player['id'])
+            ->sum('amount');
+
+        // update credits of player by player_id
+        $player = Player::where('id', '=', $player['id'])->first();
+        $player->update(['credits' => $purchases]);
 
         return response()->json(['data' => "success"], $this-> successStatus);
     }

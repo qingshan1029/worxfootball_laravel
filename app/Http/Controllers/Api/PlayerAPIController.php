@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Api;
+use App\Activity;
 use App\Booking;
 use App\Http\Controllers\Controller;
 use App\Player;
@@ -85,10 +86,13 @@ class PlayerAPIController extends Controller
         return response()->json(['user' => $players], $this-> successStatus);
     }
 
-    public function getTransactions(Request $request)
+    public function delete(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'player_id' => [
+                'required',
+            ],
+            'content' => [
                 'required',
             ],
         ]);
@@ -97,19 +101,30 @@ class PlayerAPIController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
 
-//        return
-//            Booking::selectRaw("matches.*, bookings.*, bookings.updated_at as payment_time")
-//                    ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
-//                    ->where('player_id', '=', $player_id)
-//                    ->orderBy('matches.start_time', 'desc')
-//                    ->get();
+        $player = Player::where('id', '=', $request['player_id'])->first();
+        if(empty($player))
+            return response()->json(['error'=>'Player is not exist.'], 401);
 
-          $transactions = Booking::selectRaw("matches.host_photo, matches.host_name, matches.address, matches.credits,
-                                matches.start_time, bookings.updated_at as payment_time")
-                ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
-                ->where('player_id', '=', $request['player_id'])
-                ->orderBy('matches.start_time', 'desc')
-                ->get();
-          return response()->json(['data' => $transactions], $this-> successStatus);
+        $player->update(['status' => 3]);
+        $player->delete();
+
+
+        $activity = Activity::where('player_id', '=', $request['player_id'])
+            ->where('type', '=', 3)
+            ->first();
+
+        if(!empty($activity) && $activity['type'] == 3) {
+            $activity->delete();
+        }
+
+        $info = [
+            'player_id' => $request['player_id'],
+            'type' => 3,    // deleted
+            'content' => $request['content'],
+        ];
+
+        Activity::create($info);
+
+        return response()->json(['success' => true] , $this-> successStatus);
     }
 }

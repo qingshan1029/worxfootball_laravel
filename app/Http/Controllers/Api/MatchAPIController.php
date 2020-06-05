@@ -12,7 +12,7 @@ class MatchAPIController extends Controller
 {
     public $successStatus = 200;
 
-    public function getMatches(Request $request)
+    public function get(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'start_time' => [

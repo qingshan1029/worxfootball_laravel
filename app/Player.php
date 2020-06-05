@@ -36,6 +36,7 @@ class Player extends Model
         'birthday',
         'photo',
         'credits',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -76,73 +76,128 @@
 </div>
 <div class="card" id = 'transaction' style="display: none">
     <div class="card-header">
-        My transactions
+        {{ trans('global.show') }} {{ trans('cruds.player.title') }}
     </div>
-    @foreach($transactions as $key=>$transaction)
-        <div class="card-body" style="align-self: center; width: 600px">
-            <div class="form-group">
-                <table class="table table-bordered table-striped">
-                    <tbody>
-                    <tr style="background: rgba(255, 128, 0, 1)">
-                        <th class="col-lg-12" style="width: 200px">
-                            {{--                            {{ trans('cruds.player.fields.email') }}--}}
-                            Host Name
-                        </th>
-                        <td>
-                            {{ $transaction->host_name }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Start Time
-                        </th>
-                        <td>
-                            {{ $transaction->start_time }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Location
-                        </th>
-                        <td>
-                            {{ $transaction->address }}
-                        </td>
-                    </tr>
-                    @if(Date($transaction->start_time) > now())
-                        <tr >
-                            <th>
-                                Payment date
-                            </th>
-                            <td class="row m-0">
-                                <div class="col-lg-8">
-                                    {{ $transaction->payment_time }}
-                                </div>
-                                <div class="col-lg-4" style="background: rgba(200,0,0,1); color: white; text-align: center">
-                                    Reserve
-                                </div>
-                            </td>
-                        </tr>
-                    @else
-                        <tr>
-                            <th>
-                                Payment date
-                            </th>
-                            <td class="row m-0">
-                                <div class="col-lg-8">
-                                    {{ $transaction->payment_time }}
-                                </div>
-                                <div class="col-lg-4">
-                                    Closed
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                    @endif
-                </table>
-            </div>
-        </div>
-    @endforeach
+    <div class="card-body">
+        <table class=" table table-bordered table-striped table-hover datatable datatable-User">
+            <thead>
+            <tr>
+                <th width="10">
+
+                </th>
+                <th>
+                    {{ trans('cruds.transaction.fields.match_id') }}
+                </th>
+                <th>
+                    {{ trans('cruds.transaction.fields.datetime') }}
+                </th>
+                <th>
+                    {{ trans('cruds.transaction.fields.event_name') }}
+                </th>
+                <th>
+                    {{ trans('cruds.transaction.fields.amount') }}
+                </th>
+                <th>
+                    {{ trans('cruds.transaction.fields.credit') }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($transactions as $key => $transaction)
+                <tr data-entry-id="{{ $transaction->id }}">
+                    <td>
+
+                    </td>
+                    <td>
+                        {{ $transaction->match_id ?? '' }}
+                    </td>
+                    <td>
+                        {{ $transaction->datetime ?? '' }}
+                    </td>
+                    <td>
+                        {{ $transaction->event_name ?? '' }}
+                    </td>
+                    <td>
+                        {{ $transaction->amount ?? '' }}
+                    </td>
+                    <td>
+                        {{ $transaction->credit ?? '' }}
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
+{{--<div class="card" id = 'transaction' style="display: none">--}}
+{{--    <div class="card-header">--}}
+{{--        My transactions--}}
+{{--    </div>--}}
+{{--    @foreach($transactions as $key=>$transaction)--}}
+{{--        <div class="card-body" style="align-self: center; width: 600px">--}}
+{{--            <div class="form-group">--}}
+{{--                <table class="table table-bordered table-striped">--}}
+{{--                    <tbody>--}}
+{{--                    <tr style="background: rgba(255, 128, 0, 1)">--}}
+{{--                        <th class="col-lg-12" style="width: 200px">--}}
+{{--                            --}}{{--                            {{ trans('cruds.player.fields.email') }}--}}
+{{--                            Host Name--}}
+{{--                        </th>--}}
+{{--                        <td>--}}
+{{--                            {{ $transaction->host_name }}--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                    <tr>--}}
+{{--                        <th>--}}
+{{--                            Start Time--}}
+{{--                        </th>--}}
+{{--                        <td>--}}
+{{--                            {{ $transaction->start_time }}--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                    <tr>--}}
+{{--                        <th>--}}
+{{--                            Location--}}
+{{--                        </th>--}}
+{{--                        <td>--}}
+{{--                            {{ $transaction->address }}--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                    @if(Date($transaction->start_time) > now())--}}
+{{--                        <tr >--}}
+{{--                            <th>--}}
+{{--                                Payment date--}}
+{{--                            </th>--}}
+{{--                            <td class="row m-0">--}}
+{{--                                <div class="col-lg-8">--}}
+{{--                                    {{ $transaction->payment_time }}--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-4" style="background: rgba(200,0,0,1); color: white; text-align: center">--}}
+{{--                                    Reserve--}}
+{{--                                </div>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    @else--}}
+{{--                        <tr>--}}
+{{--                            <th>--}}
+{{--                                Payment date--}}
+{{--                            </th>--}}
+{{--                            <td class="row m-0">--}}
+{{--                                <div class="col-lg-8">--}}
+{{--                                    {{ $transaction->payment_time }}--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-4">--}}
+{{--                                    Closed--}}
+{{--                                </div>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    </tbody>--}}
+{{--                    @endif--}}
+{{--                </table>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    @endforeach--}}
+{{--</div>--}}
 
 @endsection
 @section('scripts')

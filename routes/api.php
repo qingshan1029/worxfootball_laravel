@@ -25,12 +25,20 @@ Route::post('users', 'Api\UserAPIController@users');
 Route::post('player/login', 'Api\PlayerAPIController@login');
 Route::post('player/register', 'Api\PlayerAPIController@register');
 Route::post('player/players', 'Api\PlayerAPIController@players');
-Route::post('player/transactions', 'Api\PlayerAPIController@getTransactions');
+Route::post('player/delete', 'Api\PlayerAPIController@delete');
 
-Route::post('matches', 'Api\MatchAPIController@getMatches');
-//Route::post('reserve', 'Api\BookingAPIController@createReservations');
 
-Route::post('pay', 'Api\PaymentAPIController@pay');
+Route::post('matches/get', 'Api\MatchAPIController@get');
+
+Route::post('booking/reserve', 'Api\BookingAPIController@createReservations');
+
+Route::post('transactions/get', 'Api\TransactionAPIController@get');
+
+Route::post('payment/pay', 'Api\PaymentAPIController@pay');
+
+Route::post('activity/getAll', 'Api\ActivityAPIController@getAll');
+Route::post('activity/setFeedback', 'Api\ActivityAPIController@setFeedback');
+
 
 
 //Route::group(['middleware' => 'auth:api'], function() {

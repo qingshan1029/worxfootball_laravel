@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Match;
 use App\Player;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Validator;
@@ -22,9 +23,9 @@ class PaymentAPIController extends Controller
             'player_id' => [
                 'required',
             ],
-            'match_id' => [
-                'required',
-            ],
+//            'match_id' => [
+//                'required',
+//            ],
             'card_name' => [
                 'required',
             ],
@@ -49,22 +50,33 @@ class PaymentAPIController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
 
-        $result = $this->checkReservations($request);
-        if( !empty($result['error']))
-            return response()->json($result, 401);
-        $match = $result['match'];
-        $player = $result['player'];
-
-        $result = $this->checkPayment($request);
-
+        // stripe payment
+        $result = $this->checkPayment($request, $request['amount']);
         if( $result['success'] == false)
             return response()->json($result, 401);
 
-        $this->createReservations($match, $player);
+        // if the charge is successful,  add one transaction and update credits in players
+        $info = [
+            'player_id' => $request['player_id'],
+            'match_id' => 0,         // is ignored. this is valid in case of reservation
+            'datetime' => now(),
+            'event_name' => 'charge',
+            'amount' => $request['amount'],     // virtual money
+            'credit' => $request['amount'],     // real charged money
+        ];
 
-        $bookingPlayers = $this->searchBookingPlayers($match['id']);
+        // create one new transaction
+        Transaction::create($info);
 
-        return response()->json(['data' => ['match'=>$match, 'bookingplayers'=>$bookingPlayers]], $this-> successStatus);
+        // calculate sum the amount(virtual) to all transactions by player_id
+        $purchases = Transaction::where('player_id', '=', $request['player_id'])
+            ->sum('amount');
+
+        // update credits of player by player_id
+        $player = Player::where('id', '=', $request['player_id'])->first();
+        $player->update(['credits' => $purchases]);
+
+        return response()->json(['data' => ['success'=>true]], $this-> successStatus);
 
     }
 
@@ -126,11 +138,24 @@ class PaymentAPIController extends Controller
     }
     public function checkPayment($request)
     {
-        $email = '';
-        if(empty($email))
-            $email = Player::where('id', '=', $request['player_id'])->first()->email;
+        $player = Player::where('id', '=', $request['player_id'])->first();
 
-//        $email = $request['email'];
+        if(empty($player['email'])) {
+            return [
+                "success" => false,
+                "msg" => "Player is not exist.",
+            ];
+        }
+
+        $email = $player['email'];
+
+        if($email == '') {
+            return [
+                "success" => false,
+                "msg" => "Email is not exist.",
+            ];
+        }
+
         $name = 'unknown';
         $description = 'for football';
         $amount = $request['amount'];

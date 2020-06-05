@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
             MathesSeeder::class,
             PermissionRoleTableSeeder::class ,
             PlayersTableSeeder::class,
+            ActivitiesTableSeeder::class,
+            TransactionsTableSeeder::class,
 //            BookingsTableSeeder::class,
         ]);
     }

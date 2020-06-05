@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Activity;
 use App\Booking;
+use App\Transaction;
+use http\Env\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Player;
@@ -98,6 +101,26 @@ class PlayersController extends Controller
         if($path != "uploads/photo/photo_empty.png" && File::isFile($path)) {
             File::delete($path);
         }
+
+        // save in Activity table]
+
+        $activity = Activity::where('player_id', '=', $player['id'])
+                            ->where('type', '=', 3)
+                            ->first();
+
+        if(!empty($activity)) {
+            $activity->delete();
+        }
+
+        $request = [
+            'player_id' => $player['id'],
+            'type' => 3,
+            'content' => 'My leg is broken.',
+        ];
+
+        $activity = Activity::create($request);
+
+        $player->update(['status' => 3]);
         $player->delete();
 
         return back();
@@ -111,8 +134,6 @@ class PlayersController extends Controller
             File::delete($path);
         }
 
-        $player->delete();
-
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
@@ -125,12 +146,20 @@ class PlayersController extends Controller
 //                    ->orderBy('matches.start_time', 'desc')
 //                    ->get();
 
+//        return
+//            Booking::selectRaw("matches.host_photo, matches.host_name, matches.address, matches.credits,
+//                                matches.start_time, bookings.updated_at as payment_time")
+//                ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
+//                ->where('player_id', '=', $player_id)
+//                ->orderBy('matches.start_time', 'desc')
+//                ->get();
+
         return
-            Booking::selectRaw("matches.host_photo, matches.host_name, matches.address, matches.credits,
-                                matches.start_time, bookings.updated_at as payment_time")
-                ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id')
-                ->where('player_id', '=', $player_id)
-                ->orderBy('matches.start_time', 'desc')
-                ->get();
+            Transaction::selectRaw("matches.host_photo, matches.host_name, matches.address, matches.credits,
+                                matches.start_time, transactions.*")
+                        ->leftJoin('matches', 'transactions.match_id', '=', 'matches.id')
+                        ->where('player_id', '=', $player_id)
+                        ->orderBy('datetime', 'desc')
+                        ->get();
     }
 }

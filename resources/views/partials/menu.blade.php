@@ -70,6 +70,31 @@
                     </a>
                 </li>
             @endcan
+
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.activities.index") }}" class="nav-link {{ request()->is('admin/activities') || request()->is('admin/activities/*') ? 'active' : '' }}">
+                        <i class="fas fa-money-check-alt nav-icon">
+
+                        </i>
+                        Activity
+                    </a>
+                </li>
+            @endcan
+
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.transactions.index") }}" class="nav-link {{ request()->is('admin/transactions') || request()->is('admin/transactions/*') ? 'active' : '' }}">
+                        <i class="fas fa-money-check-alt nav-icon">
+
+                        </i>
+                        Transaction
+                    </a>
+                </li>
+            @endcan
+
+
+
 {{--            @can('user_management_access')--}}
 {{--                <li class="nav-item nav-dropdown">--}}
 {{--                    <a class="nav-link  nav-dropdown-toggle" href="#">--}}
