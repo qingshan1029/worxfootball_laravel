@@ -87,6 +87,6 @@ class BookingAPIController extends Controller
         $player = Player::where('id', '=', $player['id'])->first();
         $player->update(['credits' => $purchases]);
 
-        return response()->json(['data' => "success"], $this-> successStatus);
+        return response()->json(['data' => ["success"=>true]], $this-> successStatus);
     }
 }

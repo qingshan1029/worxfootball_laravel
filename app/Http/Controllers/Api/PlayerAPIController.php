@@ -181,6 +181,6 @@ class PlayerAPIController extends Controller
 
         Activity::create($info);
 
-        return response()->json(['success' => true] , $this-> successStatus);
+        return response()->json(['data' => ['success' => true]] , $this-> successStatus);
     }
 }

@@ -53,7 +53,7 @@ class PaymentAPIController extends Controller
         // stripe payment
         $result = $this->checkPayment($request, $request['amount']);
         if( $result['success'] == false)
-            return response()->json($result, 401);
+            return response()->json(["data" => $result], 401);
 
         // if the charge is successful,  add one transaction and update credits in players
         $info = [
