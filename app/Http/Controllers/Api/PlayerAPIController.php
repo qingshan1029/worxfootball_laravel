@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 use App\Activity;
 use App\Booking;
 use App\Http\Controllers\Controller;
+use App\Match;
 use App\Player;
 use App\User;
 use http\Env\Response;
@@ -29,7 +30,7 @@ class PlayerAPIController extends Controller
 
         if( $player != null ) {    // email successful
             if (Hash::check($request['password'], $player['password'])) {   // password successful
-                return response()->json(['user' => $player], $this-> successStatus);
+                return response()->json(['data' => ['user' => $player]], $this-> successStatus);
             }
         }
 
@@ -78,13 +79,13 @@ class PlayerAPIController extends Controller
 
         $player = Player::create($request->all());
         $success['email'] =  $player->email;
-        return response()->json(['user'=>$player], $this-> successStatus);
+        return response()->json(['data' => ['user' => $player]], $this-> successStatus);
     }
 
     public function players()
     {
         $players = Player::all();
-        return response()->json(['user' => $players], $this-> successStatus);
+        return response()->json(['data' => ['users' => $players]], $this-> successStatus);
     }
     public function info(Request $request)
     {
@@ -100,7 +101,16 @@ class PlayerAPIController extends Controller
 
         $player = Player::where('id', '=', $request['player_id'])->first();
 
-        return response()->json(['user' => $player], $this-> successStatus);
+        if(empty($player))
+            return response()->json(['data' => ['success' => false]] , 401);
+
+        $bookings = Booking::selectRaw('bookings.*, matches.*')
+                            ->where('matches.start_time', '<', now())
+                            ->leftJoin('matches', 'bookings.match_id', '=', 'matches.id' )
+                            ->where('player_id', '=', $player->id)
+                            ->get();
+
+        return response()->json(['data' => ['user' => $player, 'booking_history' => count($bookings)]] , $this-> successStatus);
     }
 
     public function update(Request $request)
@@ -116,6 +126,9 @@ class PlayerAPIController extends Controller
         }
 
         $player = Player::where('id', '=', $request['player_id'])->first();
+
+        if(empty($player))
+            return response()->json(['data' => ['success' => false]] , 401);
 
         if( $request->hasFile('photo') ) {
             $path = 'uploads/photo/' . $player->getAttribute('photo');
@@ -137,9 +150,9 @@ class PlayerAPIController extends Controller
 
         }
 
-        $player = $player->update($request->input());
+        $player->update($request->input());
 
-        return response()->json(['user' => $player], $this-> successStatus);
+        return response()->json(['data' => ['success' => true]], $this-> successStatus);
     }
 
     public function delete(Request $request)

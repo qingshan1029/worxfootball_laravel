@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5d506534-fef1-4d5e-89e1-14e26b2badf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BookingAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BookingAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PaymentAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PaymentAPIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/WORX Football API.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/WORX Football API.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +268,8 @@
       <workItem from="1591250898987" duration="9588000" />
       <workItem from="1591276343596" duration="23791000" />
       <workItem from="1591366054961" duration="13504000" />
-      <workItem from="1591390964282" duration="311000" />
+      <workItem from="1591390964282" duration="970000" />
+      <workItem from="1591413107971" duration="2762000" />
     </task>
     <servers />
   </component>
@@ -307,10 +307,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2061" y="226" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590486518474" />
-    <state x="2434" y="177" width="1146" height="863" key="find.popup" timestamp="1591379867624">
+    <state x="2070" y="177" width="1146" height="863" key="find.popup" timestamp="1591415295072">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2434" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1591379867624" />
+    <state x="2070" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1591415295072" />
     <state x="411" y="177" width="1146" height="863" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1589700455439" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1590553831965">
       <screen x="0" y="0" width="1920" height="1040" />
