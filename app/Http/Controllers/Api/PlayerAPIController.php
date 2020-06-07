@@ -110,7 +110,7 @@ class PlayerAPIController extends Controller
                             ->where('player_id', '=', $player->id)
                             ->get();
 
-        return response()->json(['data' => ['user' => $player, 'booking_history' => count($bookings)]] , $this-> successStatus);
+        return response()->json(['data' => ['user' => $player, 'match_count' => count($bookings)]] , $this-> successStatus);
     }
 
     public function update(Request $request)

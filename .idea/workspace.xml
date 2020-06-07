@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d506534-fef1-4d5e-89e1-14e26b2badf8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/WORX Football API.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/WORX Football API.docx" afterDir="false" />
@@ -270,6 +271,9 @@
       <workItem from="1591366054961" duration="13504000" />
       <workItem from="1591390964282" duration="970000" />
       <workItem from="1591413107971" duration="2762000" />
+      <workItem from="1591416793321" duration="289000" />
+      <workItem from="1591455799039" duration="615000" />
+      <workItem from="1591494766519" duration="31000" />
     </task>
     <servers />
   </component>
