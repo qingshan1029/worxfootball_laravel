@@ -23,6 +23,9 @@ class BookingsController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+//        date_default_timezone_set('Europe/London');
+//        dd(now());
+
         //$bookings = Booking::all();
         $bookings = Booking::selectRaw("matches.id as match_id, players.id as player_id, players.email, players.first_name, players.last_name,
                         players.birthday, players.photo, players.credits, matches.*, bookings.id")
@@ -191,6 +194,7 @@ class BookingsController extends Controller
             'match_id' => $match['id'],         // valid in case of reservation
             'datetime' => now(),
             'event_name' => 'reserved',
+            'description' => 'Booking fee on ' . $match['host_name'],
             'amount' => -$match['credits'],      // virtual money (to decrease, put minus symbol)
             'credit' => 0,                      // none
         ];

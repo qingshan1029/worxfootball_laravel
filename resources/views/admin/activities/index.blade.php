@@ -23,7 +23,10 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.activity.fields.player_info') }}
+                            {{ trans('cruds.activity.fields.email') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.activity.fields.player_name') }}
                         </th>
                         <th>
                             {{ trans('cruds.activity.fields.type') }}
@@ -43,7 +46,10 @@
 
                             </td>
                             <td>
-                                {{ $activity->email ?? '' }} {{',  '}} {{ $activity->first_name ?? '' }} {{ $activity->last_name ?? '' }}
+                                {{ $activity->email ?? '' }}
+                            </td>
+                            <td>
+                                {{ $activity->first_name ?? '' }} {{ $activity->last_name ?? '' }}
                             </td>
                             <td>
                                 @if($activity->type == 1)

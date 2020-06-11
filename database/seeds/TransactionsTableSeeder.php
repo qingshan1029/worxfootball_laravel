@@ -17,7 +17,8 @@ class TransactionsTableSeeder extends Seeder
 //                'player_id'     => 1,
 //                'match_id'      => 0,
 //                'datetime'      => '2020-06-04 10:35:29',   // event time
-//                'event_name'   => 'charge',                // charge
+//                'description'   => 'Stripe payment for booking on WORX'
+//                'event_name'    => 'charge',                // charge
 //                'credit'        => 100,                     // charged 100 pound
 //                'amount'        => 100,                     // increase virtual money
 //            ],
@@ -26,7 +27,8 @@ class TransactionsTableSeeder extends Seeder
 //                'player_id'     => 1,
 //                'match_id'      => 1,
 //                'datetime'      => '2020-06-04 11:05:02',   // event time
-//                'event_name'   => 'reserved',               // reservation
+//                'description'   => 'Booking payment  '
+//                'event_name'    => 'reserved',              // reservation
 //                'credit'        => 0,                       // none
 //                'amount'        => -20,                     // decrease virtual money
 //            ],
@@ -34,8 +36,19 @@ class TransactionsTableSeeder extends Seeder
 //                'id'            => 3,
 //                'player_id'     => 1,
 //                'match_id'      => 0,
-//                'datetime'      => '2020-06-04 10:35:29',   // event time
-//                'event_name'   => 'bonus',                 // bonus
+//                'datetime'      => '2020-06-04 10:35:29',   // event tim
+//                'description'   => 'Gained the joined bonus'
+//                'event_name'    => 'bonus',                 // bonus
+//                'credit'        => 0,                       // none
+//                'amount'        => 10,                      // increase virtual money(birthday, or ...)
+//            ],
+//            [
+//                'id'            => 4,
+//                'player_id'     => 1,
+//                'match_id'      => 0,
+//                'datetime'      => '2020-06-04 10:35:29',   // event tim
+//                'description'   => 'Gained the birthday bonus'
+//                'event_name'    => 'bonus',                 // bonus
 //                'credit'        => 0,                       // none
 //                'amount'        => 10,                      // increase virtual money(birthday, or ...)
 //            ],

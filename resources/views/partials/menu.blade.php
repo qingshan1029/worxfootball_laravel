@@ -21,7 +21,19 @@
                         <i class="fa-fw nav-icon fa fa-futbol-o">
 
                         </i>
-                        {{ trans('cruds.match.title') }}
+                        {{ trans('cruds.match.title_singular') }}
+                    </a>
+                </li>
+            @endcan
+
+
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.bonuses.index") }}" class="nav-link {{ request()->is('admin/bonuses') || request()->is('admin/bonuses/*') ? 'active' : '' }}">
+                        <i class="fas fa-gift nav-icon">
+
+                        </i>
+                        {{ trans('cruds.bonus.title_singular') }}
                     </a>
                 </li>
             @endcan
@@ -32,19 +44,8 @@
                         <i class="fa-fw fas fa-user-friends nav-icon">
 
                         </i>
-                        {{ trans('cruds.player.title') }}
+                        {{ trans('cruds.player.title_singular') }}
 
-                    </a>
-                </li>
-            @endcan
-
-            @can('user_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-user-shield nav-icon">
-
-                        </i>
-                        {{ trans('cruds.user.title') }}
                     </a>
                 </li>
             @endcan
@@ -55,7 +56,7 @@
                         <i class="fas fa-calendar-check nav-icon">
 
                         </i>
-                        {{ trans('cruds.booking.title') }}
+                        {{ trans('cruds.booking.title_singular') }}
                     </a>
                 </li>
             @endcan
@@ -71,13 +72,14 @@
 {{--                </li>--}}
 {{--            @endcan--}}
 
+
             @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.activities.index") }}" class="nav-link {{ request()->is('admin/activities') || request()->is('admin/activities/*') ? 'active' : '' }}">
                         <i class="fas fa-chart-line nav-icon">
 
                         </i>
-                        Activity
+                        {{ trans('cruds.activity.title_singular') }}
                     </a>
                 </li>
             @endcan
@@ -158,6 +160,19 @@
 {{--                    </a>--}}
 {{--                </li>--}}
 {{--            @endcan--}}
+
+
+            @can('user_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-user-shield nav-icon">
+
+                        </i>
+                        {{ trans('cruds.user.title_singular') }}
+                    </a>
+                </li>
+            @endcan
+
 
             <li class="nav-item mt-5">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

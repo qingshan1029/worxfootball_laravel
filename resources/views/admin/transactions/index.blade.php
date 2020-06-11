@@ -23,14 +23,21 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.transaction.fields.player_info') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.transaction.fields.datetime') }}
                         </th>
                         <th>
                             {{ trans('cruds.transaction.fields.event_name') }}
                         </th>
+                        <th>
+                            {{ trans('cruds.transaction.fields.description') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.transaction.fields.email') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.transaction.fields.player_info') }}
+                        </th>
+
                         <th>
                             {{ trans('cruds.transaction.fields.amount') }}
                         </th>
@@ -49,16 +56,23 @@
 
                             </td>
                             <td>
-                                {{ $transaction->email ?? '' }} {{',  '}} {{ $transaction->first_name ?? '' }} {{ $transaction->last_name ?? '' }}
-                            </td>
-                            <td>
                                 {{ $transaction->datetime ?? '' }}
                             </td>
                             <td>
                                 {{ $transaction->event_name ?? '' }}
                             </td>
                             <td>
-                                {{ $transaction->amount ?? '' }}
+                                {{ $transaction->description ?? '' }}
+                            </td>
+                            <td>
+                                {{ $transaction->email ?? '' }}
+                            </td>
+                            <td>
+                                {{ $transaction->first_name ?? '' }} {{ $transaction->last_name ?? '' }}
+                            </td>
+
+                            <td>
+                                {{ $transaction->amount ?? '' }} £
                             </td>
                             <td>
                                 {{ $transaction->credit ?? '' }}

@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests;
 
-use App\Player;
+use App\Bonus;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class StorePlayerRequest extends FormRequest
+class StoreBonusRequest extends FormRequest
 {
     public function authorize()
     {
@@ -19,25 +19,18 @@ class StorePlayerRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'    => [
-                'required',
-                'unique:players',
-            ],
-            'password' => [
+            'from_date' => [
                 'required',
             ],
-            'first_name' => [
+            'to_date' => [
                 'required',
             ],
-            'last_name' => [
+            'amount' => [
                 'required',
             ],
-            'birthday' => [
+            'active' => [
                 'required',
             ],
-//            'credits' => [
-//                'required',
-//            ],
         ];
     }
 }

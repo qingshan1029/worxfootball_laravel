@@ -22,6 +22,7 @@ class PlayersTableSeeder extends Seeder
                 'photo'          => 'photo_empty.png',
                 'credits'        => 0,
                 'status'         => 1,
+                'created_at'     => now(),
             ],
             [
                 'id'             => 2,
@@ -33,6 +34,7 @@ class PlayersTableSeeder extends Seeder
                 'photo'          => 'photo_empty.png',
                 'credits'        => 0,
                 'status'         => 1,
+                'created_at'     => now(),
 //                'password'       => '$2y$10$vUIzDlvfpu2yOATsPYcPaOTY/zgbgwViLIWSfZxSlmRBFV.g/fmOW',
             ],
         ];

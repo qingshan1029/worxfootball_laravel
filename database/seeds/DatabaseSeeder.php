@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PlayersTableSeeder::class,
             ActivitiesTableSeeder::class,
             TransactionsTableSeeder::class,
+            BonusTableSeeder::class,
 //            BookingsTableSeeder::class,
         ]);
     }

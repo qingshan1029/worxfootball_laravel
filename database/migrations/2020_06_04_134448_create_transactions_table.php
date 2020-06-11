@@ -23,6 +23,8 @@ class CreateTransactionsTable extends Migration
 
             $table->dateTime('datetime');       // event date
 
+            $table->string('description');       // event date
+
             $table->string('event_name');     // event name 1 : charge, 2: reserved, 3: bonus(charge)
 
             $table->integer('amount');          // virtual money

@@ -2,10 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d506534-fef1-4d5e-89e1-14e26b2badf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Bonus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BonusesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreBonusRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateBonusRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_214344_create_bonuses_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/BonusTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bonuses/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bonuses/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bonuses/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/bonuses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Laravel-Shops-Map-QuickAdminPanel-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Laravel-Shops-Map-QuickAdminPanel-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ActivitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ActivitiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlayersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlayersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PlayerAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/WORX Football API.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/WORX Football API.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StorePlayerRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StorePlayerRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_04_134448_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_04_134448_create_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/MathesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/MathesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PlayersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PlayersTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TransactionsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TransactionsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/photo/1591372501.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/activities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/activities/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/bookings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bookings/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/players/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/players/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/players/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/players/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/transactions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/transactions/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +192,7 @@
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/org_heigl/ghostscript" />
       <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bwiXoVrGsLnkS7vs2cs9hn89L5" />
@@ -171,18 +206,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\KKJ_Work\Web\laravel\worx_football\app\Http\Requests" />
+      <recent name="E:\KKJ_Work\Web\laravel\worx_football\resources\views\admin" />
+      <recent name="E:\KKJ_Work\Web\laravel\worx_football\database\seeds" />
       <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Controllers\Api" />
       <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Controllers\Api\V1" />
-      <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\resources\views\admin" />
-      <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\database\seeds" />
-      <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Requests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\KKJ_Work\Web\laravel\worx_football\app\Http\Controllers\Admin" />
       <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Controllers\Api" />
       <recent name="E:\KKJ_Work\Web\laravel\worxfootball_web\app\Http\Controllers\Admin" />
       <recent name="E:\KKJ_Work\Mobile\Android\FootballMatch\dashboard_template\FootballMatch\app\Http\Controllers\Admin" />
@@ -274,6 +311,24 @@
       <workItem from="1591416793321" duration="289000" />
       <workItem from="1591455799039" duration="615000" />
       <workItem from="1591494766519" duration="31000" />
+      <workItem from="1591506693588" duration="41000" />
+      <workItem from="1591506916455" duration="1424000" />
+      <workItem from="1591514212268" duration="3000" />
+      <workItem from="1591514819004" duration="1000" />
+      <workItem from="1591536734351" duration="4000" />
+      <workItem from="1591537259614" duration="187000" />
+      <workItem from="1591541269920" duration="34000" />
+      <workItem from="1591551492957" duration="600000" />
+      <workItem from="1591602145899" duration="1348000" />
+      <workItem from="1591631165581" duration="599000" />
+      <workItem from="1591722635195" duration="599000" />
+      <workItem from="1591750325369" duration="617000" />
+      <workItem from="1591751169260" duration="468000" />
+      <workItem from="1591808494487" duration="351000" />
+      <workItem from="1591808861479" duration="827000" />
+      <workItem from="1591817871225" duration="5417000" />
+      <workItem from="1591836715577" duration="15868000" />
+      <workItem from="1591855186427" duration="1470000" />
     </task>
     <servers />
   </component>
@@ -281,15 +336,17 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591281373659">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591839059230">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1591281373659" />
-    <state x="1049" y="247" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591377747311">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591839059230" />
+    <state x="1049" y="249" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591849418572">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1049" y="247" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1591377747311" />
     <state x="2610" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590007486232" />
+    <state x="1049" y="249" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591849418572" />
     <state x="740" y="384" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1590506637466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -298,15 +355,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="621" y="175" width="691" height="689" key="#phpunit.xml/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590473269789" />
-    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1591033796334">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1591809687143">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590684184416" />
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1591033796334" />
+    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591809687143" />
+    <state x="2660" y="277" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1591751634787" />
     <state x="795" y="438" key="NewPhpFileDialog" timestamp="1590132995652">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="795" y="438" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590132995652" />
+    <state x="2162" y="146" width="998" height="708" key="SettingsEditor" timestamp="1591808959340">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2162" y="146" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591808959340" />
+    <state x="725" y="289" width="998" height="708" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1591751601363" />
     <state x="2061" y="226" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590486518474">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -320,9 +384,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590553831965" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590982867869">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="623" y="227" width="672" height="685" key="search.everywhere.popup" timestamp="1591851613716">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590982867869" />
+    <state x="623" y="227" width="672" height="685" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591851613716" />
   </component>
 </project>

@@ -73,16 +73,16 @@
                 @endif
             </div>
 
-            <div class="form-group">
-                <label class="required" for="credits">{{ trans('cruds.player.fields.credits') }}</label>
-                <input class="form-control {{ $errors->has('credits') ? 'is-invalid' : '' }}" type="number" name="credits" id="credits" required>
-                @if($errors->has('credits'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('credits') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.player.fields.credits_helper') }}</span>
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label class="required" for="credits">{{ trans('cruds.player.fields.credits') }}</label>--}}
+{{--                <input class="form-control {{ $errors->has('credits') ? 'is-invalid' : '' }}" type="number" name="credits" id="credits" required>--}}
+{{--                @if($errors->has('credits'))--}}
+{{--                    <div class="invalid-feedback">--}}
+{{--                        {{ $errors->first('credits') }}--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--                <span class="help-block">{{ trans('cruds.player.fields.credits_helper') }}</span>--}}
+{{--            </div>--}}
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}

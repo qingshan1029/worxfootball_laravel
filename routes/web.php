@@ -58,6 +58,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Payment
     Route::resource('payments', 'PaymentsController');
+
+    // Bonus
+    Route::delete('bonuses/destroy', 'BonusesController@massDestroy')->name('bonuses.massDestroy');
+    Route::resource('bonuses', 'BonusesController');
 });
 
 

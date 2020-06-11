@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Transaction extends Model
+class Bonus extends Model
 {
     use Notifiable;
 
-    public $table = 'transactions';
+    public $table = 'bonuses';
 
     protected $hidden = [
 
@@ -21,13 +21,10 @@ class Transaction extends Model
     ];
 
     protected $fillable = [
-        'player_id',
-        'match_id',
-        'event_name',
-        'datetime',
-        'description',
+        'active',
+        'from_date',
+        'to_date',
         'amount',
-        'credit',
         'created_at',
         'updated_at',
     ];

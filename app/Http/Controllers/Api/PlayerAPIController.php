@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers\Api;
 use App\Activity;
+use App\Bonus;
 use App\Booking;
 use App\Http\Controllers\Controller;
 use App\Match;
 use App\Player;
+use App\Transaction;
 use App\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -77,8 +79,40 @@ class PlayerAPIController extends Controller
             return response()->json(['error'=>'The email exist already.'], 401);
         }
 
+        // create player
+        $request['credits'] = 0;
         $player = Player::create($request->all());
         $success['email'] =  $player->email;
+
+        // check if bonus is possible
+        $bonus = Bonus::where('from_date', '<=', now() )
+            ->where('to_date', '>=', now() )
+            ->where('active', '=', '1' )
+            ->first();
+
+        if($bonus != null) {
+            // add one transaction with bonus and update credits in player
+            $info = [
+                'player_id' => $player['id'],
+                'match_id' => 0,         // is ignored. this is valid in case of reservation
+                'datetime' => now(),
+                'event_name' => 'bonus',
+                'description' => 'Giving to bonus on newly joined user',
+                'amount' => $bonus['amount'],     // virtual money(bonus)
+                'credit' => 0,     // real charged money ()
+            ];
+
+            // create one new transaction
+            Transaction::create($info);
+
+            // calculate sum the amount(virtual) to all transactions by player_id
+            $purchases = Transaction::where('player_id', '=', $player['id'])
+                ->sum('amount');
+
+            // update credits of new player
+            $player->update(['credits' => $purchases]);
+        }
+
         return response()->json(['data' => ['user' => $player]], $this-> successStatus);
     }
 

@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 @can('user_create')
-{{--    <div style="margin-bottom: 10px;" class="row">--}}
-{{--        <div class="col-lg-12">--}}
-{{--            <a class="btn btn-success" href="{{ route("admin.bookings.create") }}">--}}
-{{--                {{ trans('global.add') }} {{ trans('cruds.booking.title_singular') }}--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div style="margin-bottom: 10px;" class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success" href="{{ route("admin.bookings.create") }}">
+                {{ trans('global.add') }} {{ trans('cruds.booking.title_singular') }}
+            </a>
+        </div>
+    </div>
 @endcan
 <div class="card">
     <div class="card-header">
@@ -29,7 +29,10 @@
                             {{ trans('cruds.booking.fields.match_address') }}
                         </th>
                         <th>
-                            {{ trans('cruds.booking.fields.player_info') }}
+                            {{ trans('cruds.booking.fields.email') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.booking.fields.player_name') }}
                         </th>
                         <th>
                             {{ trans('cruds.booking.fields.operations') }}
@@ -49,7 +52,10 @@
                                 {{ $bookings['matches']['address'] ?? '' }}
                             </td>
                             <td>
-                                {{ $bookings['players']['email'] ?? '' }} {{', '}}{{ $bookings['players']['first_name'] ?? '' }}  {{ $bookings['players']['last_name'] ?? ''}}
+                                {{ $bookings['players']['email'] ?? '' }}
+                            </td>
+                            <td>
+                                {{ $bookings['players']['first_name'] ?? '' }}  {{ $bookings['players']['last_name'] ?? ''}}
                             </td>
                             <td>
 {{--                                @can('user_show')--}}
