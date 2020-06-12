@@ -61,7 +61,7 @@
                             {{ trans('cruds.player.fields.credits') }}
                         </th>
                         <td>
-                            {{ $player->credits }}
+                            £{{ $player->credits }}
                         </td>
                     </tr>
                 </tbody>
@@ -86,10 +86,13 @@
 
                 </th>
                 <th>
+                    {{ trans('cruds.transaction.fields.datetime') }}
+                </th>
+                <th>
                     {{ trans('cruds.transaction.fields.event_name') }}
                 </th>
                 <th>
-                    {{ trans('cruds.transaction.fields.datetime') }}
+                    {{ trans('cruds.transaction.fields.description') }}
                 </th>
                 <th>
                     {{ trans('cruds.transaction.fields.event') }}
@@ -97,9 +100,9 @@
                 <th>
                     {{ trans('cruds.transaction.fields.amount') }}
                 </th>
-                <th>
-                    {{ trans('cruds.transaction.fields.credit') }}
-                </th>
+{{--                <th>--}}
+{{--                    {{ trans('cruds.transaction.fields.credit') }}--}}
+{{--                </th>--}}
             </tr>
             </thead>
             <tbody>
@@ -109,10 +112,13 @@
 
                     </td>
                     <td>
+                        {{ $transaction->datetime ?? '' }}
+                    </td>
+                    <td>
                         {{ $transaction->event_name ?? '' }}
                     </td>
                     <td>
-                        {{ $transaction->datetime ?? '' }}
+                        {{ $transaction->description ?? '' }}
                     </td>
                     @if($transaction->event_name == 'reserved' && Date($transaction->start_time) > now())
                         <td class="row m-0" style="border: none; padding-left: 0">
@@ -138,11 +144,11 @@
                         </td>
                     @endif
                     <td>
-                        {{ $transaction->amount ?? '' }}
+                        £{{ $transaction->amount ?? '' }}
                     </td>
-                    <td>
-                        {{ $transaction->credit ?? '' }}
-                    </td>
+{{--                    <td>--}}
+{{--                        {{ $transaction->credit ?? '' }}--}}
+{{--                    </td>--}}
                 </tr>
             @endforeach
             </tbody>

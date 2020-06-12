@@ -74,7 +74,7 @@ class PaymentsController extends Controller
             'match_id' => 0,         // is ignored. this is valid in case of reservation
             'datetime' => now(),
             'event_name' => 'charge',
-            'description' => 'Stripe payment for booking on WORX',
+            'description' => 'Purchased credit using stripe payment',
             'amount' => $request['amount'],     // virtual money
             'credit' => $request['amount'],     // real charged money
         ];

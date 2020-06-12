@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 @section('content')
-@can('user_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.bookings.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.booking.title_singular') }}
-            </a>
-        </div>
-    </div>
-@endcan
+{{--@can('user_create')--}}
+{{--    <div style="margin-bottom: 10px;" class="row">--}}
+{{--        <div class="col-lg-12">--}}
+{{--            <a class="btn btn-success" href="{{ route("admin.bookings.create") }}">--}}
+{{--                {{ trans('global.add') }} {{ trans('cruds.booking.title_singular') }}--}}
+{{--            </a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--@endcan--}}
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.booking.title_singular') }} {{ trans('global.list') }}

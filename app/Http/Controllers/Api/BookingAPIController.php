@@ -72,6 +72,7 @@ class BookingAPIController extends Controller
             'match_id' => $match['id'],         // valid in case of reservation
             'datetime' => now(),
             'event_name' => 'reserved',
+            'description' => 'Booking on ' . $match['title'],
             'amount' => -$match['credits'],      // virtual money (to decrease, put minus symbol)
             'credit' => 0,                      // none
         ];

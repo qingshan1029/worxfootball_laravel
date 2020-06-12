@@ -68,7 +68,7 @@
                                 <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-small" style="margin-top: 0px">
                             </td>
                             <td>
-                                {{ $player->credits ?? '' }} £
+                                £{{ $player->credits ?? '' }}
                             </td>
                             <td>
                                 @can('user_show')

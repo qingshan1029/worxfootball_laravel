@@ -194,7 +194,7 @@ class BookingsController extends Controller
             'match_id' => $match['id'],         // valid in case of reservation
             'datetime' => now(),
             'event_name' => 'reserved',
-            'description' => 'Booking fee on ' . $match['host_name'],
+            'description' => 'Booking on ' . $match['title'],
             'amount' => -$match['credits'],      // virtual money (to decrease, put minus symbol)
             'credit' => 0,                      // none
         ];

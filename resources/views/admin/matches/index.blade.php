@@ -93,12 +93,17 @@
                                 {{ $match->max_players ?? '' }}
                             </td>
 
+                            @if($match->max_players <= $match->reservations)
+                                <td style="color: #007fff; font-weight: bold; margin: 10px">
+                                    {{ $match->reservations ?? '' }} (full)
+                                </td>
+                            @else
+                                <td>
+                                    {{ $match->reservations ?? '' }}
+                                </td>
+                            @endif
                             <td>
-                                {{ $match->reservations ?? '' }}
-                            </td>
-
-                            <td>
-                                {{ $match->credits ?? '' }} £
+                               £{{ $match->credits ?? '' }}
                             </td>
 
 {{--                            <td>--}}

@@ -97,7 +97,7 @@ class PlayerAPIController extends Controller
                 'match_id' => 0,         // is ignored. this is valid in case of reservation
                 'datetime' => now(),
                 'event_name' => 'bonus',
-                'description' => 'Giving to bonus on newly joined user',
+                'description' => 'Initial credits for new registered account',
                 'amount' => $bonus['amount'],     // virtual money(bonus)
                 'credit' => 0,     // real charged money ()
             ];

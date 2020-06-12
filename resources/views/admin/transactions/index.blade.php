@@ -41,9 +41,9 @@
                         <th>
                             {{ trans('cruds.transaction.fields.amount') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.transaction.fields.credit') }}
-                        </th>
+{{--                        <th>--}}
+{{--                            {{ trans('cruds.transaction.fields.credit') }}--}}
+{{--                        </th>--}}
 {{--                        <th>--}}
 {{--                            {{ trans('cruds.transaction.fields.operations') }}--}}
 {{--                        </th>--}}
@@ -72,11 +72,11 @@
                             </td>
 
                             <td>
-                                {{ $transaction->amount ?? '' }} £
+                                £{{ $transaction->amount ?? '' }}
                             </td>
-                            <td>
-                                {{ $transaction->credit ?? '' }}
-                            </td>
+{{--                            <td>--}}
+{{--                                {{ $transaction->credit ?? '' }}--}}
+{{--                            </td>--}}
 {{--                            <td>--}}
 {{--                                @can('user_show')--}}
 {{--                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.transactions.show', $transaction->id) }}">--}}

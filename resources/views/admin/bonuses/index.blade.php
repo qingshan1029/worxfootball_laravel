@@ -52,7 +52,7 @@
                                 {{ $bonus->to_date ?? '' }}
                             </td>
                             <td>
-                                {{ $bonus->amount ?? ''}}
+                                £{{ $bonus->amount ?? ''}}
                             </td>
                             <td>
                                 {{ $bonus->active ?? ''}}

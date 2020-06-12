@@ -88,7 +88,7 @@
                             {{ trans('cruds.match.fields.credits') }}
                         </th>
                         <td>
-                            {{ $match->credits }} £
+                            £{{ $match->credits }}
                         </td>
                     </tr>
 
@@ -122,6 +122,9 @@
                 <thead>
                 <tr>
                     <th>
+                        {{ trans('cruds.player.fields.photo') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.player.fields.email') }}
                     </th>
                     <th>
@@ -133,17 +136,18 @@
                     <th>
                         {{ trans('cruds.player.fields.birthday') }}
                     </th>
-                    <th>
-                        {{ trans('cruds.player.fields.photo') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.player.fields.credits') }}
-                    </th>
+{{--                    <th>--}}
+{{--                        {{ trans('cruds.player.fields.credits') }}--}}
+{{--                    </th>--}}
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($bookingPlayers as $key => $player)
                     <tr data-entry-id="{{ $player->id }}">
+                        <td>
+                            {{--                                {{ $player->photo ?? '' }}--}}
+                            <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-small" style="margin-top: 0px">
+                        </td>
                          <td>
                             {{ $player->email ?? '' }}
                         </td>
@@ -156,13 +160,9 @@
                         <td>
                             {{ date('Y-m-d', strtotime($player->birthday)) ?? '' }}
                         </td>
-                        <td>
-                            {{--                                {{ $player->photo ?? '' }}--}}
-                            <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-small" style="margin-top: 0px">
-                        </td>
-                        <td>
-                            {{ $player->credits ?? '' }}
-                        </td>
+{{--                        <td>--}}
+{{--                            £{{ $player->credits ?? '' }}--}}
+{{--                        </td>--}}
                     </tr>
                 @endforeach
                 </tbody>
