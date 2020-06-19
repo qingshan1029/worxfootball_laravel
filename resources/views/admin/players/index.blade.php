@@ -63,13 +63,15 @@
                             <td>
                                 {{ date('Y-m-d', strtotime($player->birthday)) ?? '' }}
                             </td>
+
                             <td>
-{{--                                {{ $player->photo ?? '' }}--}}
-                                <img src="{{ isset($player) ? "/uploads/photo/$player->photo" : "/uploads/photo/photo_empty.png" }}" id="photo_preview" alt="Avatar" class="avatar-small" style="margin-top: 0px">
+                                <img src="{{ strpos($player->photo, 'http') === false ? "/uploads/photo/$player->photo" : $player->photo }}" id="photo_preview" alt="Avatar" class="avatar-small" style="margin-top: 0px">
                             </td>
+
                             <td>
                                 £{{ $player->credits ?? '' }}
                             </td>
+
                             <td>
                                 @can('user_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.players.show', $player->id) }}">
