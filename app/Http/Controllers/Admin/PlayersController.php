@@ -44,15 +44,9 @@ class PlayersController extends Controller
             $file->move('uploads/photo/', $filename);
             $request->merge(['photo' => $filename]);
 
-        } else if( empty($request['photo']) ) {
+        } else {
             $request->merge(['photo' => 'photo_empty.png']);
-        } else {    // in case of birthday exists same as "https://xxdfdsf/faf/samplephoto.jpg"
-
         }
-
-//        if( $request['birthday'] == null ) { // facebook
-//            $request->merge(['birthday' => '']);
-//        }
 
         // create player
         $player['credits'] = 0;

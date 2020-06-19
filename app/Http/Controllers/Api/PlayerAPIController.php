@@ -54,10 +54,14 @@ class PlayerAPIController extends Controller
             'last_name' => [
                 'required',
             ],
-//            'birthday' => [
-//                'required',
-//            ],
+            'birthday' => [
+                'required',
+            ],
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
 
         if( $request->hasFile('photo') ) {
             $file = $request->file('photo');
@@ -66,15 +70,9 @@ class PlayerAPIController extends Controller
             $file->move('uploads/photo/', $filename);
             $request->merge(['photo' => $filename]);
 
-        } else if( empty($request['photo']) ) {
+        } else {
             $request->merge(['photo' => 'photo_empty.png']);
-        } else {    // in case of birthday exists same as "https://xxdfdsf/faf/samplephoto.jpg"
-
         }
-
-//        if( $request['birthday'] == null ) { // facebook
-//            $request->merge(['birthday' => '']);
-//        }
 
         $player = Player::where('email','=',$request['email']);
         if( $player->count()) {

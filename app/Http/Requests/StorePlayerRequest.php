@@ -32,7 +32,7 @@ class StorePlayerRequest extends FormRequest
             'last_name' => [
                 'required',
             ],
-            'birthday' => [   // in case of FaceBook registration, this field is not exist.
+            'birthday' => [
                 'required',
             ],
 //            'credits' => [
